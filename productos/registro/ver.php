@@ -19,8 +19,6 @@ $pdf=new PDF("P","mm","letter");
 $pdf->AddPage();
 mostrarI(array("Nombre"=>$pro['nombre'],
 				"Descripcion"=>$pro['descripcion'],
-				"Destino"=>$pro['destino'],
-				"Proveedor"=>$prov['nombre']
 			));
 
 /*$foto="../foto/".$emp['foto'];

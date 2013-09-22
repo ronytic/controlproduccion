@@ -20,8 +20,7 @@ include_once "../../cabecerahtml.php";
                 <table class="tablabus">
                     <tr>
                         <td><?php campos("Nombre","nombre","text","",1,array("size"=>15));?></td>
-                        <td><?php campos("Proveedor","codproveedor","select",$prov);?></td>
-                        <td><?php campos("Destino","destino","select",$dest);?></td>
+                       
                         <td><?php campos("Buscar","enviar","submit","",0,array("size"=>15));?></td>
                     </tr>
                 </table>
