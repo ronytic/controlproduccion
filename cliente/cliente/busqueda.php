@@ -7,7 +7,7 @@ if (!empty($_POST)) {
 
 	$cliente=new cliente;
 	$pro=$cliente->mostrarTodo("nombre LIKE '%$nombre%'");
-	$titulo=array("nombre"=>"Nombre","direccion"=>"Dirección","telefono"=>"Teléfono","observacion"=>"Observación");
+	$titulo=array("nombre"=>"Nombre","direccion"=>"Dirección","telefono"=>"Teléfono","departamento"=>"Departamento","observacion"=>"Observación");
 	listadoTabla($titulo,$pro,1,"modificar.php","eliminar.php","ver.php");
 }
 ?>

@@ -27,6 +27,9 @@ include_once '../../cabecerahtml.php';
                     <tr>
 						<td><?php campos("Teléfono","telefono","text",$cli['telefono'],1,array("required"=>"required"));?></td>
 					</tr>
+                    <tr>
+						<td><?php campos("Departamento","departamento","text","",0,array("required"=>"required"));?></td>
+					</tr>
 					<tr>
 						<td><?php campos("Observación","observacion","text",$cli['observacion'],1,array("required"=>"required"));?></td>
 					</tr>

@@ -8,6 +8,7 @@ extract($_POST);
 $valores=array(	"nombre"=>"'$nombre'",
 				"direccion"=>"'$direccion'",
 				"telefono"=>"'$telefono'",
+				"departamento"=>"'$departamento'",
 				"observacion"=>"'$observacion'",
 				);
 				$cliente->actualizar($valores,$id);

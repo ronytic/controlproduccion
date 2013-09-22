@@ -15,6 +15,7 @@ $pdf->AddPage();
 mostrarI(array("Nombre"=>$cli['nombre'],
 				"Dirección"=>$cli['direccion'],
 				"Teléfono"=>$cli['telefono'],
+				"Departamento"=>$cli['departamento'],
 				"Observación"=>$cli['observacion'].""
 			));
 
