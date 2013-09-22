@@ -26,6 +26,7 @@ mostrarI(array("Cliente"=>$cli['nombre'],
 				"Cantidad"=>$ped['cantidad'],
 				"Fecha de Pedido"=>fecha2Str($ped['fechapedido']),
 				"Fecha de Entrega"=>fecha2Str($ped['fechaentrega']),
+				"Estado"=>$ped['estado'],
 				"Observación"=>$ped['observacion'],
 			));
 

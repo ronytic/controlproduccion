@@ -7,6 +7,7 @@ $productos=new productos;
 $prod=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre","");
 
 $dest=array("Procesado"=>"Procesado","Directo"=>"Directo");
+$estado=array("Pendiente"=>"Pendiente","Entregado"=>"Entregado");
 include_once("../../funciones/funciones.php");
 include_once "../../cabecerahtml.php";
 ?>
@@ -22,7 +23,9 @@ include_once "../../cabecerahtml.php";
                         <td><?php campos("Fecha de Pedido","fechapedido","date","",0,array("size"=>15));?></td>
                         <td><?php campos("Fecha de Entrega","fechaentrega","date","",0,array("size"=>15));?></td>
                         <td><?php campos("Productos","codproductos","select",$prod);?></td>
-                        
+                    </tr>
+                    <tr>    
+                    	<td><?php campos("Estado","estado","select",$estado,0,"",$ped['estado']);?></td>
                         <td><?php campos("Buscar","enviar","submit","",0,array("size"=>15));?></td>
                     </tr>
                 </table>

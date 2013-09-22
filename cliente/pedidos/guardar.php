@@ -20,6 +20,7 @@ $valores=array(	"codcliente"=>"'$codcliente'",
 				"cantidad"=>"'$cantidad'",
 				"fechapedido"=>"'$fechapedido'",
 				"fechaentrega"=>"'$fechaentrega'",
+				"estado"=>"'$estado'",
 				"observacion"=>"'$observacion'",
 				);
 				$pedidos->insertar($valores);

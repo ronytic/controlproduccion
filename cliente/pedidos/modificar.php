@@ -15,7 +15,7 @@ include_once("../../class/productos.php");
 $productos=new productos;
 $prod=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre","");
 
-
+$estado=array("Pendiente"=>"Pendiente","Entregado"=>"Entregado");
 include_once '../../funciones/funciones.php';
 include_once '../../cabecerahtml.php';
 ?>
@@ -43,8 +43,11 @@ include_once '../../cabecerahtml.php';
                     <tr>
 						<td><?php campos("Fecha de Entrega","fechaentrega","date",$ped['fechaentrega'],0,"");?></td>
 					</tr>
+                    <tr>
+						<td><?php campos("Estado","estado","select",$estado,0,"",$ped['estado']);?></td>
+					</tr>
 					<tr>
-						<td><?php campos("Observación","observacion","textarea",$ped['observacion'],0,"");?></td>
+						<td><?php campos("Observación","observacion","textarea",$ped['observacion'],0,array("cols"=>30,"rows"=>5));?></td>
 					</tr>
                     
 					<tr><td><?php campos("Guardar","guardar","submit");?></td><td></td></tr>
