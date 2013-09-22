@@ -1,0 +1,80 @@
+/* CSS Document */
+body{
+	background-image:url(../../imagenes/fondo.png);
+
+}
+#formLogin{
+	/*background-image:url(../../imagenes/body.jpg);*/
+		-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	background-color:#FFF;
+	margin-top:15%;
+	text-align:center;
+	box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
+	padding:30px;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	background-color:#FFF;
+	margin-top:5%;
+	text-align:center;
+	
+	box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
+	padding:20px;
+	background : -linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%);
+	background : -moz-linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%);
+	background : -ms-linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%); 
+	background : -o-linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%);
+	background : -webkit-linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%);
+}
+#formLogin label{
+	color:#CCC;
+	font-size:15pt;
+	margin:20px;
+}
+#formLogin input[type=text],#formLogin input[type=password]{
+	margin:10px;
+	padding:10px;
+	font-size:12pt;
+	width:160px;
+	border:#CCC 1px solid;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+}
+#formLogin input[type=submit]{
+	padding:10px;
+	font-weight:bolder;
+}
+#formLogin{
+	color:#FFFFFF;	
+}
+.titulo{
+	margin-top:10px;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	background : -linear-gradient(top, rgb(204, 68, 61) 00%, rgb(189, 54, 47) 100%);	
+	background : -moz-linear-gradient(top, rgb(204, 68, 61) 00%, rgb(189, 54, 47) 100%);
+	background : -ms-linear-gradient(top, rgb(204, 68, 61) 00%, rgb(189, 54, 47) 100%); 
+	background : -o-linear-gradient(top, rgb(204, 68, 61) 00%, rgb(189, 54, 47) 100%);
+	background : -webkit-linear-gradient(top, rgb(204, 68, 61) 00%, rgb(189, 54, 47) 100%);
+
+	color:#FFF;
+	font-weight:bold;
+	padding:5px;
+	text-align:center;
+	margin-bottom:5px;
+	cursor:default;
+}
+.cuerpo{
+	border:#CCC 1px solid;
+-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	padding:5px;
+	background-color:#FFF;	
+}
+.rojoC{
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	background-color:#b94a48;
+	color:#FFFFFF;
+	padding:5px;
+}
+.naranjaC{
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
+	background-color:#f89406;
+	color:#FFFFFF;
+	padding:5px;
+}
