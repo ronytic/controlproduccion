@@ -270,9 +270,10 @@ input[type=text],input.texto,textarea,select,option,input[type=password],input[t
 	padding:5px;
 	margin:3px !important;
 }
-input[type=text]:focus,input.texto:focus,textarea:focus,select:focus,option:focus,input[type=password]:focus{
-	-webkit-box-shadow:0px 0px 3px rgba(10,118,173,1);
+input[type=text]:focus,input[type=number]:focus,input.texto:focus,textarea:focus,select:focus,option:focus,input[type=password]:focus{
+	-webkit-box-shadow:0px 0px 5px #3CF;
 	outline:none;
+	border:#39F 1px solid;
 }
 input[type=submit].enviar,input[type=submit]{
 	margin-top:15px;
@@ -297,6 +298,10 @@ input[type=submit].enviar,input[type=submit]{
 }
 input[type=submit].enviar:hover,input[type=submit]:hover{
 box-shadow: #999 2px 2px 3px;
+}
+input[readonly]{
+	background-color:#EFEFEF;
+	color:#000 !important;	
 }
 /*Fin de estilo de formulario*/
 a,a.enlace{
@@ -440,8 +445,14 @@ table.tablareg tr:hover td{
 	background : -o-linear-gradient(top, rgb(222, 222, 222) 00%, rgb(233, 233, 233) 99%);
 	background : -webkit-linear-gradient(top, rgb(222, 222, 222) 00%, rgb(233, 233, 233) 99%);
 }
-table.tablareg td input,table.tablareg td select,table.tablareg td option,table.tablareg td textarea,table.tablareg td label{
+table.tablareg td label{
 	display: block;
+}
+table.tablareg td{
+vertical-align:bottom	
+}
+table.tablareg td input,table.tablareg td select,table.tablareg td option,table.tablareg td textarea,table.tablareg td label{
+	/*display: block;*/
 }
 /*Tabla de Busqueda*/
 table.tablabus td.der{

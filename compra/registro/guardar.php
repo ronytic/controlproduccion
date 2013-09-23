@@ -1,8 +1,8 @@
 <?php
 include_once("../../login/check.php");
 if(!empty($_POST)):
-include_once("../../class/materiaprima.php");
-$materiaprima=new materiaprima;
+include_once("../../class/compra.php");
+$compra=new compra;
 
 extract($_POST);
 //empieza la copia de archivos
@@ -15,19 +15,17 @@ if(($_FILES['curriculum']['type']=="application/pdf" || $_FILES['curriculum']['t
 	$mensaje[]="Archivo no válido del curriculum. Verifique e intente nuevamente";
 }
 */
-$valores=array(	"fecharegistro"=>"'$fecharegistro'",
+$valores=array(	"fechacompra"=>"'$fechacompra'",
 				"codproductos"=>"'$codproductos'",
 				"cantidad"=>"'$cantidad'",
-				"color"=>"'$color'",
-				"sabor"=>"'$sabor'",
-				"olor"=>"'$olor'",
-				"condicionempaque"=>"'$condicionempaque'",
-				"codresponsable"=>"'$codresponsable'",
+				"preciounitario"=>"'$preciounitario'",
+				"total"=>"'$total'",
+				"codproveedor"=>"'$codproveedor'",
 				"fechavencimiento"=>"'$fechavencimiento'",
-				"estado"=>"'$estado'",
 				"observacion"=>"'$observacion'",
+				"cantidadstock"=>"'$cantidad'",
 				);
-$materiaprima->insertar($valores);
+$compra->insertar($valores);
 $mensaje[]="SUS DATOS SE GUARDARON CORRECTAMENTE";
 
 
