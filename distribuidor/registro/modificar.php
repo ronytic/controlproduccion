@@ -1,11 +1,11 @@
 <?php
 include_once '../../login/check.php';
 $folder="../../";
-$titulo="Modificar Cliente";
+$titulo="Modificar Datos de Distribuidor";
 $id=$_GET['id'];
-include_once '../../class/cliente.php';
-$cliente=new cliente;
-$cli=array_shift($cliente->mostrar($id));
+include_once '../../class/distribuidor.php';
+$distribuidor=new distribuidor;
+$cli=array_shift($distribuidor->mostrar($id));
 include_once '../../funciones/funciones.php';
 include_once '../../cabecerahtml.php';
 ?>
