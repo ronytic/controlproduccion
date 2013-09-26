@@ -28,7 +28,7 @@ $us=array_shift($usuarios->mostrar($_SESSION['idusuario']));
 <script src="<?php echo $folder;?>js/ui/jquery.ui.datepicker.js" language="javascript"></script>
 <script language="javascript">
 $(document).ready(function(e) {
-    $('input[type=date]').click(function(e){e.preventDefault();}).datepicker({maxDate:'7 D'});
-	$("select").chosen({width:'100%'});	
+    $('input[type=date]').click(function(e){e.preventDefault();}).datepicker();
+	$("select").not(".nolista").chosen({width:'100%'});	
 });
 </script>
