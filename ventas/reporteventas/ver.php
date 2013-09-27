@@ -1,7 +1,7 @@
 <?php
 include_once("../../login/check.php");
 include_once("../../impresion/pdf.php");
-$titulo="Reporte de Compra de Productos";
+$titulo="Reporte de Venta de Productos";
 extract($_GET);
 class PDF extends PPDF{
 	function Cabecera(){
@@ -14,14 +14,15 @@ class PDF extends PPDF{
 		}
 		$this->Ln();
 		$this->TituloCabecera(10,"N");
-		$this->TituloCabecera(55,"Nombre Producto");
-		$this->TituloCabecera(15,"Cant");
-		$this->TituloCabecera(15,"PrecUni");
-		$this->TituloCabecera(15,"Total");
-		$this->TituloCabecera(20,"CantStock");
-		$this->TituloCabecera(20,"FechaCom");
-		$this->TituloCabecera(35,"Proveedor");
-		$this->TituloCabecera(50,"Observación");
+		$this->TituloCabecera(60,"Nombre Producto");
+		$this->TituloCabecera(20,"Cant");
+		$this->TituloCabecera(20,"PrecUni");
+		$this->TituloCabecera(20,"Total");
+		//$this->TituloCabecera(20,"CantStock");
+		$this->TituloCabecera(20,"FechaVen");
+		$this->TituloCabecera(50,"Cliente");
+		$this->TituloCabecera(50,"Distribuidor");
+		$this->TituloCabecera(60,"Observación");
 	}	
 }
 
@@ -35,11 +36,13 @@ if($fechainicio!="" && $fechafin!=""){
 	$fechas=" and  (fechacompra BETWEEN '$fechainicio' and '$fechafin')";
 }
 include_once("../../class/productos.php");
-include_once("../../class/compra.php");
-include_once("../../class/proveedor.php");
-$compra=new compra;
+include_once("../../class/venta.php");
+include_once("../../class/distribuidor.php");
+include_once("../../class/cliente.php");
+$venta=new venta;
 $productos=new productos;
-$proveedor=new proveedor;
+$distribuidor=new distribuidor;
+$cliente=new cliente;
 $where="codproductos LIKE '$codproductos' $fechas  $existente";
 /*if(!empty($fechacontrato)){
 	$where="`fechacontrato`<='$fechacontrato'";
@@ -52,39 +55,42 @@ if(!empty($tipocontrato)){
 }*/
 
 //echo $where;
-$pdf=new PDF("L","mm","letter");
+$pdf=new PDF("L","mm","legal");
 $pdf->AddPage();
 $totales=array();
 $cantidadt=0;
 $preciot=0;
 $totalt=0;
 $cantidadstock=0;
-foreach($compra->mostrarTodos($where,"fechacompra") as $inv){$i++;
+foreach($venta->mostrarTodos($where,"fechaventa") as $inv){$i++;
 	$cantidadt+=$inv['cantidad'];
 	$preciot+=$inv['preciounitario'];
 	$totalt+=$inv['total'];
 	$cantidadstock+=$inv['cantidadstock'];
 
 	$pro=array_shift($productos->mostrar($inv['codproductos']));
-	$prov=array_shift($proveedor->mostrar($inv['codproveedor']));
+	$clie=array_shift($cliente->mostrar($inv['codcliente']));
+	$dist=array_shift($distribuidor->mostrar($inv['coddistribuidor']));
+	
 	$pdf->CuadroCuerpo(10,$i,0,"R");
-	$pdf->CuadroCuerpo(55,$pro['nombre'],0,"");
-	$pdf->CuadroCuerpo(15,($inv['cantidad']),1,"R",1);
-	$pdf->CuadroCuerpo(15,($inv['preciounitario']),1,"R",1);
-	$pdf->CuadroCuerpo(15,($inv['total']),1,"R",1);
-	$pdf->CuadroCuerpo(20,($inv['cantidadstock']),1,"R",1);
-	$pdf->CuadroCuerpo(20,fecha2Str($inv['fechacompra']),1,"",1);
-	$pdf->CuadroCuerpo(35,($prov['nombre']),1,"",1);
-	$pdf->CuadroCuerpo(50,($inv['observacion']),1,"L",1);
+	$pdf->CuadroCuerpo(60,$pro['nombre'],0,"");
+	$pdf->CuadroCuerpo(20,($inv['cantidad']),1,"R",1);
+	$pdf->CuadroCuerpo(20,($inv['preciounitario']),1,"R",1);
+	$pdf->CuadroCuerpo(20,($inv['total']),1,"R",1);
+	//$pdf->CuadroCuerpo(20,($inv['cantidadstock']),1,"R",1);
+	$pdf->CuadroCuerpo(20,fecha2Str($inv['fechaventa']),1,"",1);
+	$pdf->CuadroCuerpo(50,($clie['nombre']),1,"",1);
+	$pdf->CuadroCuerpo(50,($dist['nombre']),1,"",1);
+	$pdf->CuadroCuerpo(60,($inv['observacion']),1,"L",1);
 	
 	$pdf->ln();
 }
 $pdf->Linea();
-$pdf->CuadroCuerpoResaltar(65,"Totales",1,"R",0);
-$pdf->CuadroCuerpoResaltar(15,$cantidadt,1,"R",1);
-$pdf->CuadroCuerpoResaltar(15,$preciot,1,"R",1);
-$pdf->CuadroCuerpoResaltar(15,$totalt,1,"R",1);
-$pdf->CuadroCuerpoResaltar(20,$cantidadstock,1,"R",1);
+$pdf->CuadroCuerpoResaltar(70,"Totales",1,"R",0);
+$pdf->CuadroCuerpoResaltar(20,$cantidadt,1,"R",1);
+$pdf->CuadroCuerpoResaltar(20,$preciot,1,"R",1);
+$pdf->CuadroCuerpoResaltar(20,$totalt,1,"R",1);
+//$pdf->CuadroCuerpoResaltar(20,$cantidadstock,1,"R",1);
 $pdf->CuadroCuerpoResaltar(55,"",0,"");
 //print_r($totales);
 
