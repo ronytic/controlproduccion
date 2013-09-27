@@ -1,7 +1,7 @@
 <?php
 include_once("../../login/check.php");
 include_once("../../impresion/pdf.php");
-$titulo="Reporte de General de Estado de Productos en Inventario";
+$titulo="Reporte de Estado de Productos de Inventario con rangos de Fechas";
 extract($_GET);
 class PDF extends PPDF{
 	function Cabecera(){
@@ -69,17 +69,58 @@ foreach($productos->mostrarTodos($where,"nombre") as $inv){$i++;
 	$cantidadv+=$cantidadventatotal;
 	$cantidads+=$cantidadstock;
 
-	$pro=array_shift($productos->mostrar($inv['codproductos']));
-	$clie=array_shift($cliente->mostrar($inv['codcliente']));
-	$dist=array_shift($distribuidor->mostrar($inv['coddistribuidor']));
+	/**/
 	
 	$pdf->CuadroCuerpo(10,$i,0,"R");
-	$pdf->CuadroCuerpo(80,$pro['nombre'],0,"");
+	$pdf->CuadroCuerpo(80,$inv['nombre'],0,"");
 	$pdf->CuadroCuerpo(40,$cantidadcompratotal,1,"R",1);
 	$pdf->CuadroCuerpo(40,$cantidadventatotal,1,"R",1);
 	$pdf->CuadroCuerpo(40,$cantidadstock,1,"R",1);
-	
-	
+	$j=0;
+	$ven=$venta->mostrarTodo("codproductos=".$inv['codproductos']."  $fechas ");
+	if(count($ven)){
+		$pdf->ln();
+		
+		$pdf->CuadroCuerpo(90,"",0,"C",0);
+		$pdf->CuadroCuerpoPersonalizado(10,"N",0,"C",1,"B");
+		$pdf->CuadroCuerpoPersonalizado(20,"Cant",0,"C",1,"B");
+		$pdf->CuadroCuerpoPersonalizado(20,"Cant",0,"C",1,"B");
+		$pdf->CuadroCuerpoPersonalizado(20,"Total",0,"C",1,"B");
+		$pdf->CuadroCuerpoPersonalizado(20,"FechaVen",0,"C",1,"B");
+		$pdf->CuadroCuerpoPersonalizado(40,"Cliente",0,"C",1,"B");
+		$pdf->CuadroCuerpoPersonalizado(30,"Observación",0,"C",1,"B");
+	}
+	$cantidadp=0;
+	$preciounitariop=0;
+	$totalp=0;
+	foreach($ven as $v){$j++;
+		$clie=array_shift($cliente->mostrar($v['codcliente']));
+		$dist=array_shift($distribuidor->mostrar($v['coddistribuidor']));
+		$cantidadp+=$v['cantidad'];
+		$preciounitariop+=$v['preciounitario'];
+		$totalp+=$v['total'];
+		
+		$pdf->ln();
+		$pdf->CuadroCuerpo(90,"",0,"R",0);
+		$pdf->CuadroCuerpo(10,$j,0,"R",1);
+		$pdf->CuadroCuerpo(20,$v['cantidad'],0,"R",1);
+		$pdf->CuadroCuerpo(20,$v['preciounitario'],0,"R",1);
+		$pdf->CuadroCuerpo(20,$v['total'],0,"R",1);
+		$pdf->CuadroCuerpo(20,fecha2Str($v['fechaventa']),0,"R",1);
+		$pdf->CuadroCuerpo(40,$clie['nombre'],0,"L",1);
+		$pdf->CuadroCuerpo(30,$v['observacion'],0,"L",1);
+		
+	}
+		
+	if(count($ven)){
+		$pdf->ln();
+		$pdf->CuadroCuerpo(90,"",0,"R",0);
+		$pdf->CuadroCuerpo(10,"Total",1,"R",1);
+		$pdf->CuadroCuerpo(20,$cantidadp,1,"R",1);
+		$pdf->CuadroCuerpo(20,$preciounitariop,1,"R",1);
+		$pdf->CuadroCuerpo(20,$totalp,1,"R",1);
+		$pdf->ln();
+	}
 	$pdf->ln();
 }
 $pdf->Linea();

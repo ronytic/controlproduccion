@@ -3,10 +3,10 @@ include_once '../login/check.php';
 $folder="../";
 $titulo="Modificar Usuario";
 $narchivo="usuarios";
-include_once("../class/".$narchivo.".php");
-${$narchivo}=new $narchivo;
+include_once("../class/usuarios.php");
+$usuarios1=new usuarios;
 $cod=$_GET['id'];
-$usu=array_shift(${$narchivo}->mostrar($cod));
+$usu=array_shift($usuarios1->mostrar($cod));
 include_once '../funciones/funciones.php';
 include_once '../cabecerahtml.php';
 ?>
