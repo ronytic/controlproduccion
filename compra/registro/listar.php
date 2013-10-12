@@ -24,7 +24,7 @@ include_once "../../cabecerahtml.php";
                     <tr>
                         <td><?php campos("Producto","codproductos","select",$prod);?></td>
                         <td><?php campos("Proveedor","codproveedor","select",$prov,"");?></td>
-                        <td><?php campos("Fecha de Vencimiento","fechavencimiento","date",$prod);?></td>
+                        <td><?php campos("Fecha de Vencimiento","fechavencimiento","date","");?></td>
                         <td><?php campos("Buscar","enviar","submit","",0,array("size"=>15));?></td>
                     </tr>
                 </table>

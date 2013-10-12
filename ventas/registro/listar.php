@@ -29,7 +29,7 @@ include_once "../../cabecerahtml.php";
                         <td><?php campos("Producto","codproductos","select",$prod);?></td>
                         <td><?php campos("Cliente","codcliente","select",$cli,"");?></td>
                         <td><?php campos("Distribuidor","coddistribuidor","select",$dis,"");?></td>
-                        <td><?php campos("Fecha de Venta","fechaventa","date",$prod);?></td>
+                        <td><?php campos("Fecha de Venta","fechaventa","date","");?></td>
                         <td><?php campos("Buscar","enviar","submit","",0,array("size"=>15));?></td>
                     </tr>
                 </table>
