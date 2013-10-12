@@ -2,6 +2,8 @@
 include_once '../../login/check.php';
 $folder="../../";
 $titulo="Registro de Venta";
+include_once("../../class/compra.php");
+$compra=new compra;
 include_once("../../class/productos.php");
 $productos=new productos;
 $pro=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre","");
@@ -39,7 +41,14 @@ $(document).on("ready",function(){
 						<td><?php campos("Fecha de Venta","fechaventa","date",date("Y-m-d"),0,array("required"=>"required"));?></td>
 					</tr>
 					<tr>
-						<td><?php campos("Producto","codproductos","select",$pro,1,array("required"=>"required"));?></td>
+						<td><select name="codproductos" rel-linea="1" class="productos p">									
+                	<option value="">Seleccionar</option>
+                	<?php foreach($productos->mostrarTodo("","nombre") as $pr){$i++;
+					$sum=array_shift($compra->sumar($pr['codproductos']));
+					$sumatotal=$sum['cantidadtotalstock']!=""?$sum['cantidadtotalstock']:'0';?>
+                    <option value="<?php echo $pr['codproductos']?>" rel="<?php echo $sumatotal;?>"><?php echo $pr['nombre']." - Cantidad Stock: ".$sumatotal;?></option>
+                    <?php }?>
+                </select></td>
 					</tr>
 					<tr>
 						<td><?php campos("Cantidad","cantidad","number","0",0,array("class"=>"der","min"=>0));?></td>
@@ -60,7 +69,7 @@ $(document).on("ready",function(){
                     <tr>
 						<td><?php campos("Observación","observacion","textarea");?></td>
 					</tr>
-					<tr><td><div class="rojoC pequeno">La Cantidad Introducida se utilizará para descontar de el inventario, Revíselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD y PRECIO de venta</div><?php campos("Guardar","guardar","submit");?></td><td></td></tr>
+					<tr><td><div class="rojoC pequeno">La Cantidad Introducida se utilizará para descontar del inventario, Revíselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD y PRECIO de venta</div><?php campos("Guardar","guardar","submit");?></td><td></td></tr>
 				</table>
                 </form>
 			</fieldset>
