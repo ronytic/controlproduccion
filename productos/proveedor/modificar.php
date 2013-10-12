@@ -31,10 +31,10 @@ include_once '../../cabecerahtml.php';
 						<td><?php campos("Email","email","text",$pro['email'],0,array("required"=>"required"));?></td>
 					</tr>
                     <tr>
-						<td><?php campos("Origen","origen","text","",0,array("required"=>"required"));?></td>
+						<td><?php campos("Origen","origen","text",$pro['origen'],0,array("required"=>"required"));?></td>
 					</tr>
                     <tr>
-						<td><?php campos("Observación","observacion","textarea","",0,array());?></td>
+						<td><?php campos("Observación","observacion","textarea",$pro['observacion'],0,array());?></td>
 					</tr>
 					<tr><td><?php campos("Modificar","guardar","submit");?></td><td></td></tr>
 				</table>
