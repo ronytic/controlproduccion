@@ -27,11 +27,12 @@ if (!empty($_POST)) {
 	$datos[$i]['nombre']=$cli['nombre'];
 	$datos[$i]['cantidad']=$mp['cantidad'];
 	$datos[$i]['preciounitario']=$mp['preciounitario'];
+	$datos[$i]['observacion']=$mp['observacion'];
 	}
 	
 	
 	
-	$titulo=array("fechaventa"=>"Fecha de Venta","producto"=>"Producto","cantidad"=>"Cantidad","preciounitario"=>"Precio Unitario","nombre"=>"Cliente");
+	$titulo=array("fechaventa"=>"Fecha de Venta","producto"=>"Producto","cantidad"=>"Cantidad","preciounitario"=>"Precio Unitario","nombre"=>"Cliente","observacion"=>"Observación");
 	listadoTabla($titulo,$datos,1,"modificar.php","","ver.php");
 }
 ?>

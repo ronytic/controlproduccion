@@ -23,11 +23,17 @@ if (!empty($_POST)) {
 	$datos[$i]['fechavencimiento']=$mp['fechavencimiento'];
 	$datos[$i]['cantidad']=$mp['cantidad'];
 	$datos[$i]['cantidadstock']=$mp['cantidadstock'];
+	$datos[$i]['observacion']=$mp['observacion'];
 	}
 	
 	
 	
-	$titulo=array("fechacompra"=>"Fecha de Compra","producto"=>"Producto","cantidad"=>"Cantidad","cantidadstock"=>"Cantidad Stock","fechavencimiento"=>"Fecha de Vencimiento");
-	listadoTabla($titulo,$datos,1,"modificar.php","eliminar.php","ver.php");
+	$titulo=array("fechacompra"=>"Fecha de Compra","producto"=>"Producto","cantidad"=>"Cantidad","cantidadstock"=>"Cantidad Stock","fechavencimiento"=>"Fecha de Vencimiento","observacion"=>"Observación");
+	if($_SESSION['Nivel']==1 || $_SESSION['Nivel']==2){
+		$eliminar="eliminar.php";
+	}else{
+		$eliminar="";
+	}
+	listadoTabla($titulo,$datos,1,"modificar.php",$eliminar,"ver.php");
 }
 ?>
