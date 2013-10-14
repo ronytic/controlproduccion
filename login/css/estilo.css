@@ -18,11 +18,12 @@ body{
 	
 	box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0,0,0,0.15);
 	padding:20px;
-	background : -linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%);
+	/*background : -linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%);
 	background : -moz-linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%);
 	background : -ms-linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%); 
 	background : -o-linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%);
-	background : -webkit-linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%);
+	background : -webkit-linear-gradient(top, rgb(1, 134, 191) 00%, rgb(15, 109, 164) 99%);*/
+	background-color:#900;
 }
 #formLogin label{
 	color:#CCC;
@@ -47,11 +48,11 @@ body{
 .titulo{
 	margin-top:10px;
 	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
-	background : -linear-gradient(top, rgb(204, 68, 61) 00%, rgb(189, 54, 47) 100%);	
+/*	background : -linear-gradient(top, rgb(204, 68, 61) 00%, rgb(189, 54, 47) 100%);	
 	background : -moz-linear-gradient(top, rgb(204, 68, 61) 00%, rgb(189, 54, 47) 100%);
 	background : -ms-linear-gradient(top, rgb(204, 68, 61) 00%, rgb(189, 54, 47) 100%); 
 	background : -o-linear-gradient(top, rgb(204, 68, 61) 00%, rgb(189, 54, 47) 100%);
-	background : -webkit-linear-gradient(top, rgb(204, 68, 61) 00%, rgb(189, 54, 47) 100%);
+	background : -webkit-linear-gradient(top, rgb(204, 68, 61) 00%, rgb(189, 54, 47) 100%);*/
 
 	color:#FFF;
 	font-weight:bold;
@@ -59,6 +60,8 @@ body{
 	text-align:center;
 	margin-bottom:5px;
 	cursor:default;
+	background-color:#FAAF25
+	
 }
 .cuerpo{
 	border:#CCC 1px solid;
