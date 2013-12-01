@@ -12,6 +12,7 @@ $valores=array(	"fechaventa"=>"'$fechaventa'",
 				//"total"=>"'$total'",
 				"codcliente"=>"'$codcliente'",
 				"coddistribuidor"=>"'$coddistribuidor'",
+				"codvendedor"=>"'$codvendedor'",
 				"observacion"=>"'$observacion'",
 				);
 				$venta->actualizar($valores,$id);

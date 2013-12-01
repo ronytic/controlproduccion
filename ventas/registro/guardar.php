@@ -42,6 +42,7 @@ if($totalproducto<$cantidad){
 				"total"=>"'$total'",
 				"codcliente"=>"'$codcliente'",
 				"coddistribuidor"=>"'$coddistribuidor'",
+				"codvendedor"=>"'$codvendedor'",
 				"observacion"=>"'$observacion'",
 				);
 			$venta->insertar($valores);

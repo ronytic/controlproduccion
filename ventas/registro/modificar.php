@@ -1,7 +1,7 @@
 <?php
 include_once '../../login/check.php';
 $folder="../../";
-$titulo="Modificar Compra de Producto";
+$titulo="Modificar Venta de Producto";
 $id=$_GET['id'];
 include_once '../../class/venta.php';
 $venta=new venta;
@@ -14,6 +14,10 @@ $pro=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre","");
 include_once("../../class/distribuidor.php");
 $distribuidor=new distribuidor;
 $dist=todolista($distribuidor->mostrarTodo("","nombre"),"coddistribuidor","nombre,departamento","-");
+
+include_once("../../class/vendedor.php");
+$vendedor=new vendedor;
+$ven=todolista($vendedor->mostrarTodo("","nombre"),"codvendedor","nombre","-");
 
 include_once("../../class/cliente.php");
 $cliente=new cliente;
@@ -53,7 +57,9 @@ include_once '../../cabecerahtml.php';
                     <tr>
 						<td><?php campos("Distribuidor","coddistribuidor","select",$dist,0,"",$mp['coddistribuidor']);?></td>
 					</tr>
-                    
+                     <tr>
+						<td><?php campos("Vendedor","codvendedor","select",$ven,0,"",$mp['codvendedor']);?></td>
+					</tr>
                     <tr>
 						<td><?php campos("Observación","observacion","textarea",$mp['observacion']);?></td>
 					</tr>

@@ -16,6 +16,10 @@ include_once("../../class/cliente.php");
 $cliente=new cliente;
 $cli=todolista($cliente->mostrarTodo("","nombre"),"codcliente","nombre","-");
 
+include_once("../../class/vendedor.php");
+$vendedor=new vendedor;
+$ven=todolista($vendedor->mostrarTodo("","nombre"),"codvendedor","nombre","-");
+
 include_once '../../funciones/funciones.php';
 include_once '../../cabecerahtml.php';
 ?>
@@ -65,7 +69,9 @@ $(document).on("ready",function(){
                     <tr>
 						<td><?php campos("Distribuidor","coddistribuidor","select",$dist);?></td>
 					</tr>
-                    
+                    <tr>
+						<td><?php campos("Vendedor","codvendedor","select",$ven);?></td>
+					</tr>
                     <tr>
 						<td><?php campos("Observación","observacion","textarea");?></td>
 					</tr>
