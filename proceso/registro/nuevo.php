@@ -68,16 +68,19 @@ $(document).on("ready",function(){
 					<tr>
 						<td><?php campos("Producto","codproductos","select",$pro,1,array("required"=>"required"));?></td>
 					</tr>
-					<tr>
-						<td><?php campos("Cantidad","cantidad","number","0",0,array("class"=>"der","min"=>0));?></td>
+                    <tr>
+						<td><?php campos("Cantidad Esperada","cantidadesperada","number","0",0,array("class"=>"der","min"=>0));?></td>
 					</tr>
+					<tr>
+						<td><?php campos("Cantidad Resultante","cantidad","number","0",0,array("class"=>"der","min"=>0));?><br><div class="rojoC pequeno">La cantidad Resultante y/o Esperadad introducida se contará para el inventario, Reviselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD</div></td>
+					</tr>
+                    
                     <tr>
 						<td><?php campos("Fecha de Vencimiento","fechavencimiento","date",date("Y-m-d",strtotime(date("Y-m-d")." +30 day")),0,array("required"=>"required"));?></td>
 					</tr>
                     <tr>
 						<td><?php campos("Observación","observacion","textarea");?></td>
 					</tr>
-					<tr><td><div class="rojoC pequeno">La Cantidad Introducida se contará para el inventario, Reviselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD</div></td><td></td></tr>
 				</table>
                 
 			</fieldset>
@@ -105,7 +108,7 @@ $(document).on("ready",function(){
 			</tr>
             <tr class="contenido"><td><a href="#" class="aumentar"><img src="../../imagenes/ico/nuevo1.png" height="15"> Aumentar</a></td><td></td></tr>
             </table>
-            <div class="rojoC pequeno">La Cantidad Introducida de ingredientes se descontará del inventario, Reviselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD</div>
+            <div class="rojoC pequeno">La Cantidad Introducida de ingredientes se descontará del inventario, Revíselo antes de Registrarlo, Posteriormente no se podrá modificar la CANTIDAD</div>
             <input type="submit" value="Guardar"> 
             </fieldset>
         </div>

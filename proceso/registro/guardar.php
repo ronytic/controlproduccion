@@ -24,6 +24,7 @@ if(($_FILES['curriculum']['type']=="application/pdf" || $_FILES['curriculum']['t
 $valores=array(	"fechacompra"=>"'$fechaproduccion'",
 				"codproductos"=>"'$codproductos'",
 				"cantidad"=>"'$cantidad'",
+				"cantidadesperada"=>"'$cantidadesperada'",
 				"preciounitario"=>"'0'",
 				"total"=>"'0'",
 				"codproveedor"=>"'0'",
