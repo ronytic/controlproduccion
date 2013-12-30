@@ -16,12 +16,15 @@ $us=array_shift($usuarios->mostrar($_SESSION['idusuario']));
 <link href="<?php echo $folder;?>css/tabcontent.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo $folder;?>css/core.css" type="text/css" rel="stylesheet" media="screen">
 <link href="<?php echo $folder;?>css/menu/style.css" type="text/css" rel="stylesheet" media="screen">
+<link href="<?php echo $folder;?>css/select2.css" type="text/css" rel="stylesheet">
 <link href="<?php echo $folder;?>css/chosen.css" type="text/css" rel="stylesheet">
+
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo $folder; ?>imagenes/logo.ico" />
 <script language="javascript" type="text/javascript" src="<?php echo $folder;?>js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="<?php echo $folder;?>js/tabcontent.js"></script> 
 <script language="javascript" type="text/javascript" src="<?php echo $folder;?>js/jquery.form.js"></script>
-<script language="javascript" type="text/javascript" src="<?php echo $folder;?>js/jquery.chosen.min.js"></script>
+<script language="javascript" type="text/javascript" src="<?php echo $folder;?>js/select2.min.js"></script>
+<script language="javascript" type="text/javascript" src="<?php echo $folder;?>js/select2_locale_es.js"></script>
 <script language="javascript" type="text/javascript" src="<?php echo $folder;?>js/busquedas/busquedas.js"></script>
 <link href="<?php echo $folder;?>css/ui/jquery.ui.all.css" type="text/css" rel="stylesheet" media="screen">
 <script src="<?php echo $folder;?>js/ui/jquery.ui.core.js" language="javascript"></script>
@@ -29,6 +32,12 @@ $us=array_shift($usuarios->mostrar($_SESSION['idusuario']));
 <script language="javascript">
 $(document).ready(function(e) {
     $('input[type=date]').click(function(e){e.preventDefault();}).datepicker();
-	$("select").not(".nolista").chosen({width:'100%'});	
+	$("select").css({'width':'100%'}).not(".nolista").select2({'placeholder':'Búsqueda no encontrada','loadMorePadding':0});
 });
 </script>
+<style type="text/css">
+hr.separador{
+	margin:0px !important;
+	padding:0px !important;	
+}
+</style>
