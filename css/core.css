@@ -536,6 +536,9 @@ table.ultimo td.der{
 table td{
 	vertical-align:top;	
 }
+table td.subir{
+	vertical-align:top;	
+}
 /*fin tablas*/
 /*Tipo de alertas*/
 .rojoC{
@@ -571,5 +574,8 @@ table td{
 }
 small{
 	font-size:11px;
+}
+.der{
+	text-align:right;	
 }
 /*Fin de Texto*/
