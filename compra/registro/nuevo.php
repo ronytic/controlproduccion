@@ -2,60 +2,58 @@
 include_once '../../login/check.php';
 $folder="../../";
 $titulo="Registro de Compra";
-include_once("../../class/productos.php");
-$productos=new productos;
-$pro=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre","");
 
-include_once("../../class/proveedor.php");
-$proveedor=new proveedor;
-$prov=todolista($proveedor->mostrarTodo("","nombre"),"codproveedor","nombre,origen","-");
 
 include_once '../../funciones/funciones.php';
 include_once '../../cabecerahtml.php';
 ?>
 <script language="javascript">
+var linea=0
 $(document).on("ready",function(){
-	$("#cantidad,#preciounitario").change(function(e){
-		var cantidad=$("#cantidad").val();
-		var preciounitario=$("#preciounitario").val();
+	
+	$(document).on("change",".cantidad,.preciounitario",function(e){
+		var lin=$(this).attr("rel");
+		var cantidad=$(".cantidad[rel="+lin+"]").val();
+		var preciounitario=$(".preciounitario[rel="+lin+"]").val();
 		var total=(cantidad*preciounitario).toFixed(2);
-		$("#total").val(total);
+		$(".total[rel="+lin+"]").val(total);
+		
 	});	
+	function aumentar(){
+
+		$.post("aumentar.php",{l:linea},function(data){
+			$("#marca").before(data);
+			$('input[type=date]').click(function(e){e.preventDefault();}).datepicker();
+			$("select").css({'width':'100%'}).not(".nolista").select2({'placeholder':'Búsqueda no encontrada','loadMorePadding':0});
+			linea++;
+		});
+	}
+	linea++;
+	aumentar();
+	$("#aumentar").click(function(e) {
+		e.preventDefault();
+        aumentar();
+    });
 });
 </script>
 <?php include_once '../../cabecera.php';?>
 <div class="grid_12">
 	<div class="contenido">
-    	<div class="prefix_3 grid_4 alpha">
+    	<div class="prefix_0 grid_11 alpha">
 			<fieldset>
 				<div class="titulo"><?php echo $titulo?></div>
                 <form action="guardar.php" method="post" enctype="multipart/form-data">
 				<table class="tablareg">
-                	<tr>
-						<td><?php campos("Fecha de Compra","fechacompra","date",date("Y-m-d"),1,array("required"=>"required"));?></td>
-					</tr>
-					<tr>
-						<td><?php campos("Producto","codproductos","select",$pro,1,array("required"=>"required"));?></td>
-					</tr>
-					<tr>
-						<td><?php campos("Cantidad","cantidad","number","0",0,array("class"=>"der","min"=>0));?></td>
-					</tr>
-                    <tr>
-						<td><?php campos("Precio Unitario","preciounitario","number","0.00",0,array("step"=>"0.1","min"=>0,"class"=>"der"));?>Bs</td>
-					</tr>
-                    <tr>
-						<td><?php campos("Total","total","text","0.00",0,array("class"=>"der","readonly"=>"readonly"));?>Bs</td>
-					</tr>
-                    <tr>
-						<td><?php campos("Proveedor","codproveedor","select",$prov);?></td>
-					</tr>
-                    <tr>
-						<td><?php campos("Fecha de Vencimiento","fechavencimiento","date",date("Y-m-d",strtotime(date("Y-m-d")." +30 day")),0,array("required"=>"required"));?></td>
-					</tr>
-                    <tr>
-						<td><?php campos("Observación","observacion","textarea");?></td>
-					</tr>
-					<tr><td><div class="rojoC pequeno">La Cantidad Introducida se contará para el inventario, Reviselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD y PRECIO</div><?php campos("Guardar","guardar","submit");?></td><td></td></tr>
+                	<tr class="titulo">
+                    	<td>N</td>
+                        <td>Fecha de Compra</td>
+                        <td width="300">Producto<hr class="separador">Proveedor</td>
+                        <td>Cantidad<hr class="separador">Fecha de Vencimiento</td>
+                        <td>Precio Unitario<hr class="separador">Observaciones</td>
+                        <td>Total</td>
+                    </tr>
+                    
+					<tr id="marca"><td colspan="2"><a href="#" id="aumentar">Aumentar</a></td><td colspan="7"><div class="rojoC pequeno">La Cantidad Introducida se contará para el inventario, Reviselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD y PRECIO</div><?php campos("Guardar","guardar","submit");?></td><td></td></tr>
 				</table>
                 </form>
 			</fieldset>

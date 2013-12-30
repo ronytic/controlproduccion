@@ -20,9 +20,12 @@ include_once "../../cabecerahtml.php";
                 <table class="tablabus">
                     <tr>
                         <td colspan="4"><?php campos("Producto","codproductos","select",$prod,0)?></td>
+                    </tr>
+                    <tr>
                         <td><?php campos("Fecha de Inicio","fechainicio","date","")?></td>
                         <td><?php campos("Fecha Fin","fechafin","date","")?></td>
                         <td><?php campos("Producto Existente","existente","select",array("0"=>"No","1"=>"Si"))?></td>
+                        <td><?php campos("Productos con Merma","merma","select",array("Si"=>"Si","No"=>"No"),0,"","No");?></td>
                     </tr>
                     <tr>
                         <td><?php campos("Ver Reporte","enviar","submit","",0,array("size"=>15));?></td>

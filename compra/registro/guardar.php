@@ -5,6 +5,7 @@ include_once("../../class/compra.php");
 $compra=new compra;
 
 extract($_POST);
+
 //empieza la copia de archivos
 /*
 if(($_FILES['curriculum']['type']=="application/pdf" || $_FILES['curriculum']['type']=="application/msword" || $_FILES['curriculum']['type']=="application/vnd.openxmlformats-officedocument.wordprocessingml.document") && $_FILES['curriculum']['size']<="500000000"){
@@ -15,17 +16,31 @@ if(($_FILES['curriculum']['type']=="application/pdf" || $_FILES['curriculum']['t
 	$mensaje[]="Archivo no válido del curriculum. Verifique e intente nuevamente";
 }
 */
-$valores=array(	"fechacompra"=>"'$fechacompra'",
-				"codproductos"=>"'$codproductos'",
-				"cantidad"=>"'$cantidad'",
-				"preciounitario"=>"'$preciounitario'",
-				"total"=>"'$total'",
-				"codproveedor"=>"'$codproveedor'",
-				"fechavencimiento"=>"'$fechavencimiento'",
-				"observacion"=>"'$observacion'",
-				"cantidadstock"=>"'$cantidad'",
+/*
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";*/
+foreach($m as $ma){
+	
+	if($ma['codproductos']!=0 && $ma['codproductos']!=""){
+$valores=array(	"fechacompra"=>"'".$ma['fechacompra']."'",
+				"codproductos"=>"'".$ma['codproductos']."'",
+				"cantidad"=>"'".$ma['cantidad']."'",
+				"cantidadesperada"=>"'".$ma['cantidad']."'",
+				"preciounitario"=>"'".$ma['preciounitario']."'",
+				"total"=>"'".$ma['total']."'",
+				"codproveedor"=>"'".$ma['codproveedor']."'",
+				"fechavencimiento"=>"'".$ma['fechavencimiento']."'",
+				"observacion"=>"'".$ma['observacion']."'",
+				"cantidadstock"=>"'".$ma['cantidad']."'",
 				);
-$compra->insertar($valores);
+				
+		/*echo "<pre>";
+print_r($ma);
+echo "</pre>";			*/	
+	$compra->insertar($valores);
+	}
+}
 $mensaje[]="SUS DATOS SE GUARDARON CORRECTAMENTE";
 
 
