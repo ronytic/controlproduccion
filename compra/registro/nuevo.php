@@ -6,6 +6,10 @@ $titulo="Registro de Compra";
 
 include_once '../../funciones/funciones.php';
 include_once '../../cabecerahtml.php';
+
+include_once("../../class/proveedor.php");
+$proveedor=new proveedor;
+$prov=todolista($proveedor->mostrarTodo("","nombre"),"codproveedor","nombre,origen","-");
 ?>
 <script language="javascript">
 var linea=0
@@ -45,14 +49,23 @@ $(document).on("ready",function(){
                 <form action="guardar.php" method="post" enctype="multipart/form-data">
 				<table class="tablareg">
                 	<tr class="titulo">
-                    	<td>N</td>
-                        <td>Fecha de Compra</td>
-                        <td width="300">Producto<hr class="separador">Proveedor</td>
-                        <td>Cantidad<hr class="separador">Fecha de Vencimiento</td>
-                        <td>Precio Unitario<hr class="separador">Observaciones</td>
-                        <td>Total</td>
+                        <td colspan="2">Fecha de Compra</td>
+                        <td colspan="2">Proveedor</td>
+                        <td colspan="2">Observaciones</td>
                     </tr>
-                    
+                    <tr>
+                    	<td colspan="2"><?php campos("","fechacompra","date",date("Y-m-d"),0,array("required"=>"required","style"=>"width:135px","rel"=>$l));?></td>
+                        <td colspan="2"><?php campos("","codproveedor","select",$prov);?></td>
+                        <td colspan="2"><?php campos("","observacion","textarea","",0,array("cols"=>35,"rows"=>1,"placeholder"=>"Ingrese su Observación"));?></td>
+                    </tr>
+                    <tr class="titulo">
+                    	<td>N</td>
+                        <td width="300">Producto</td>
+                        <td>Cantidad</td>
+                        <td>Precio Unitario</td>
+                        <td>Total</td>
+                        <td>Fecha de Vencimiento</td>
+                    </tr>
 					<tr id="marca"><td colspan="2"><a href="#" id="aumentar">Aumentar</a></td><td colspan="7"><div class="rojoC pequeno">La Cantidad Introducida se contará para el inventario, Reviselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD y PRECIO</div><?php campos("Guardar","guardar","submit");?></td><td></td></tr>
 				</table>
                 </form>
