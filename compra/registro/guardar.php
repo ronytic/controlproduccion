@@ -16,11 +16,11 @@ if(($_FILES['curriculum']['type']=="application/pdf" || $_FILES['curriculum']['t
 	$mensaje[]="Archivo no válido del curriculum. Verifique e intente nuevamente";
 }
 */
-
+/*
 echo "<pre>";
 print_r($_POST);
 echo "</pre>";
-
+*/
 
 foreach($m as $ma){
 	
