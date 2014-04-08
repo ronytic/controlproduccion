@@ -19,7 +19,9 @@ if(($_FILES['curriculum']['type']=="application/pdf" || $_FILES['curriculum']['t
 */
 /*echo "<pre>";
 print_r($_POST);
-echo "</pre>";*/
+echo "</pre>";
+*/
+
 foreach($m as $ma){
 	extract($ma);
 	$cantidadventatotal=$cantidad;
@@ -67,7 +69,7 @@ echo "</pre>";*/
 }//Fin Foreach
 
 //$mensaje[]="SUS DATOS SE GUARDARON CORRECTAMENTE";
-
+//exit();
 
 
 $titulo="Mensaje de Respuesta";

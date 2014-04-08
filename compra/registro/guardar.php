@@ -45,7 +45,7 @@ echo "</pre>";			*/
 }
 $mensaje[]="SUS DATOS SE GUARDARON CORRECTAMENTE";
 
-exit();
+//exit();
 
 $titulo="Mensaje de Respuesta";
 $folder="../../";

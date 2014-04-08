@@ -3,6 +3,17 @@ include_once '../../login/check.php';
 $folder="../../";
 $titulo="Registro de Venta";
 
+include_once("../../class/distribuidor.php");
+$distribuidor=new distribuidor;
+$dist=todolista($distribuidor->mostrarTodo("","nombre"),"coddistribuidor","nombre,departamento","-");
+
+include_once("../../class/cliente.php");
+$cliente=new cliente;
+$cli=todolista($cliente->mostrarTodo("","nombre"),"codcliente","nombre","-");
+
+include_once("../../class/vendedor.php");
+$vendedor=new vendedor;
+$ven=todolista($vendedor->mostrarTodo("","nombre"),"codvendedor","nombre","-");
 
 include_once '../../funciones/funciones.php';
 include_once '../../cabecerahtml.php';
@@ -58,8 +69,33 @@ $(document).on("ready",function(){
 				<div class="titulo"><?php echo $titulo?></div>
                 <form action="guardar.php" method="post" enctype="multipart/form-data">
 				<table class="tablareg">
-                	<tr class="titulo"><td>N</td><td>Fecha de Venta</td><td width="450" style="width:450px !important">Producto<hr class="separador">Cliente</td><td>Cantidad<hr class="separador">Distribuidor</td><td>Precio Unitario<hr class="separador">Vendedor</td><td>Total<hr class="separador">Observaciones</td></tr>
-					<tr id="marca"><td colspan="2" class="subir"><a href="#" id="aumentar">Aumentar</a></td><td colspan="3"><div class="rojoC pequeno">La Cantidad Introducida se utilizará para descontar del inventario, Revíselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD y PRECIO de venta</div><?php campos("Guardar","guardar","submit");?></td><td class="subir"><input type="text" value="0.00" class="der" style="width:80px;" readonly id="tt" name="tt"></td></tr>
+                	<tr class="titulo">
+                        <td colspan="2">Fecha de Venta</td>
+                        <td width="450" style="width:450px !important">Cliente</td>
+                        <td>Distribuidor</td>
+                        <td>Vendedor</td>
+                        <td>Observaciones</td>
+                    </tr>
+                    <tr>
+                    	<td colspan="2"><?php campos("","fechaventa","date",date("Y-m-d"),0,array("required"=>"required","style"=>"width:130px"));?></td>
+                        <td><?php campos("","codcliente","select",$cli);?></td>
+                        <td><?php campos("","coddistribuidor","select",$dist);?></td>
+                        <td><?php campos("","codvendedor","select",$ven);?></td>
+                        <td><?php campos("","observacion","textarea","",0,array("rows"=>1,"cols"=>25,"placeholder"=>"Ingrese su observación"));?></td>
+                    </tr>
+                    <tr class="titulo">
+                    	<td width="20">N</td>
+                        <td width="50" style="width:450px !important" colspan="2">Producto</td>
+                        <td>Cantidad</td>
+                        <td>Precio Unitario</td>
+                        <td>Total</td>
+                    </tr>
+                    
+                    
+					<tr id="marca">
+                    	<td colspan="2" class="subir"><a href="#" id="aumentar">Aumentar</a></td>
+                        <td colspan="3"><div class="rojoC pequeno">La Cantidad Introducida se utilizará para descontar del inventario, Revíselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD y PRECIO de venta</div><?php campos("Guardar","guardar","submit");?></td>
+                        <td class="subir"><input type="text" value="0.00" class="der" style="width:80px;" readonly id="tt" name="tt"></td></tr>
 				</table>
                 </form>
 			</fieldset>
