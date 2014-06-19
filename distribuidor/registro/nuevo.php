@@ -16,15 +16,16 @@ include_once '../../cabecerahtml.php';
 					<tr>
 						<td><?php campos("Nombre","nombre","text","",1,array("required"=>"required"));?></td>
 					</tr>
+                    <tr>
+						<td><?php campos("C.I.","ci","text","",0,array("required"=>"required"));?></td>
+					</tr>
 					<tr>
 						<td><?php campos("Dirección","direccion","text","",0,array("required"=>"required"));?></td>
 					</tr>
                     <tr>
 						<td><?php campos("Teléfono","telefono","text","",0,array("required"=>"required"));?></td>
 					</tr>
-                    <tr>
-						<td><?php campos("Departamento","departamento","text","",0,array("required"=>"required"));?></td>
-					</tr>
+                    
                     <tr>
 						<td><?php campos("Observación","observacion","text","",0,array("required"=>"required"));?></td>
 					</tr>

@@ -18,7 +18,7 @@ if(($_FILES['curriculum']['type']=="application/pdf" || $_FILES['curriculum']['t
 $valores=array(	"nombre"=>"'$nombre'",
 				"direccion"=>"'$direccion'",
 				"telefono"=>"'$telefono'",
-				"departamento"=>"'$departamento'",
+				"ci"=>"'$ci'",
 				"observacion"=>"'$observacion'",
 				);
 				$distribuidor->insertar($valores);

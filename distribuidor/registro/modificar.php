@@ -21,15 +21,16 @@ include_once '../../cabecerahtml.php';
 					<tr>
 						<td><?php campos("Nombre","nombre","text",$cli['nombre'],1,array("required"=>"required"));?></td>
 					</tr>
+                    <tr>
+						<td><?php campos("C.I.","ci","text",$cli['ci'],0,array("required"=>"required"));?></td>
+					</tr>
 					<tr>
 						<td><?php campos("Dirección","direccion","text",$cli['direccion'],1,array("required"=>"required"));?></td>
 					</tr>
                     <tr>
 						<td><?php campos("Teléfono","telefono","text",$cli['telefono'],1,array("required"=>"required"));?></td>
 					</tr>
-                    <tr>
-						<td><?php campos("Departamento","departamento","text",$cli['departamento'],0,array("required"=>"required"));?></td>
-					</tr>
+                    
 					<tr>
 						<td><?php campos("Observación","observacion","text",$cli['observacion'],1,array("required"=>"required"));?></td>
 					</tr>
