@@ -4,7 +4,7 @@ include_once '../../funciones/funciones.php';
 $l=$_POST['l'];
 include_once("../../class/productos.php");
 $productos=new productos;
-$pro=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre","");
+$pro=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre,unidad"," - ");
 
 
 ?>
