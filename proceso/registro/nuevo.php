@@ -40,15 +40,20 @@ $(document).on("ready",function(){
 		//alert(p);
 		$("input.cantidad[rel-linea="+l+"]").val(p).attr('max',p);
 	}); 
-	$(document).on("click",".aumentar",function(e){
+	
+	$(".aumentar").click(function(e) {
 		e.preventDefault();
-		var posi=$(this).parent().parent();
+        aumentar();
+    });
+	linea++;
+	aumentar();
+	function aumentar(){
 		$.post("aumentar.php",{'l':linea},function(data){
-			posi.before(data);
-			$("select").not(".nolista").chosen({width:'100%'});	
+			$("#marca").before(data);
+			$("select").css({'width':'100%'}).not(".nolista").select2({'placeholder':'Búsqueda no encontrada','loadMorePadding':0});
 			linea++;
-		});
-	})	
+		});	
+	}
 });
 
 
@@ -94,19 +99,8 @@ $(document).on("ready",function(){
                 	<td>Productos - Cantidad Stock</td>
                     <td>Cantidad</td>
                 </tr>
-            <tr>
-				<td width="500"><select name="p[1][codproductos]" rel-linea="1" class="productos p">									
-                	<option value="">Seleccionar</option>
-                	<?php foreach($productos->mostrarTodo("","nombre") as $pr){$i++;
-					$sum=array_shift($compra->sumar($pr['codproductos']));
-					$sumatotal=$sum['cantidadtotalstock']!=""?$sum['cantidadtotalstock']:'0';?>
-                    <option value="<?php echo $pr['codproductos']?>" rel="<?php echo $sumatotal;?>"><?php echo $pr['nombre']." - Cantidad Stock: ".$sumatotal;?></option>
-                    <?php }?>
-                </select></td>
-                        
-                        <td><input type="number" name="p[1][cantidad]" value="0" class="der cantidad" rel-linea="1" min="0" step="1"></td>
-			</tr>
-            <tr class="contenido"><td><a href="#" class="aumentar"><img src="../../imagenes/ico/nuevo1.png" height="15"> Aumentar</a></td><td></td></tr>
+
+            <tr class="contenido" id="marca"><td><a href="#" class="aumentar"><img src="../../imagenes/ico/nuevo1.png" height="15"> Aumentar</a></td><td></td></tr>
             </table>
             <div class="rojoC pequeno">La Cantidad Introducida de ingredientes se descontará del inventario, Revíselo antes de Registrarlo, Posteriormente no se podrá modificar la CANTIDAD</div>
             <input type="submit" value="Guardar"> 

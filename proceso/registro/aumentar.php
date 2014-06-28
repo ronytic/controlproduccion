@@ -2,7 +2,7 @@
 include_once '../../login/check.php';
 include_once("../../class/productos.php");
 $productos=new productos;
-$pro=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre","");
+$pro=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre,unidad","-");
 
 $l=$_POST['l'];
 $l++;
@@ -15,7 +15,7 @@ $compra=new compra;
                 	<?php foreach($productos->mostrarTodo("","nombre") as $pr){$i++;
 					$sum=array_shift($compra->sumar($pr['codproductos']));
 					$sumatotal=$sum['cantidadtotalstock']!=""?$sum['cantidadtotalstock']:'0';?>
-                    <option value="<?php echo $pr['codproductos']?>" rel="<?php echo $sumatotal;?>"><?php echo $pr['nombre']." - Cantidad Stock: ".$sumatotal;?></option>
+                    <option value="<?php echo $pr['codproductos']?>" rel="<?php echo $sumatotal;?>"><?php echo $pr['nombre']." - Cantidad Stock: ".$sumatotal." - ".$pr['Unidad']?></option>
                     <?php }?>
                 </select></td>
                         
