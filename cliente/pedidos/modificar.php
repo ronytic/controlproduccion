@@ -13,7 +13,7 @@ $cli=todolista($cliente->mostrarTodo("","nombre"),"codcliente","nombre","");
 
 include_once("../../class/productos.php");
 $productos=new productos;
-$prod=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre","");
+$prod=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre,unidad"," - ");
 
 $estado=array("Pendiente"=>"Pendiente","Entregado"=>"Entregado");
 include_once '../../funciones/funciones.php';
