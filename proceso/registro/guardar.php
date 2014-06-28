@@ -3,12 +3,16 @@ include_once("../../login/check.php");
 if(!empty($_POST)):
 include_once("../../class/compra.php");
 include_once("../../class/venta.php");
+include_once '../../class/configuracion.php';
+$configuracion=new configuracion;
+
 $compra=new compra;
 $venta=new venta;
 //print_r($_POST);
 extract($_POST);
 //echo "<br>";
 //print_r($p);
+$conf=array_shift($configuracion->mostrar(1));
 
 $fecha=date("Y-m-d");
 //empieza la copia de archivos
@@ -21,16 +25,61 @@ if(($_FILES['curriculum']['type']=="application/pdf" || $_FILES['curriculum']['t
 	$mensaje[]="Archivo no válido del curriculum. Verifique e intente nuevamente";
 }
 */
+$totalprecioproducto=0;
+foreach($p as $pro){
+	$codigoproducto=$pro['codproductos'];
+	if($codigoproducto==""){break;}
+	$preciomaximo=$compra->preciomaximo($codigoproducto);
+	$preciomaximo=array_shift($preciomaximo);
+	$preciomaxunitario=$preciomaximo['preciomaxunitario'];
+	//echo $codigoproducto;
+	$totalprecioproducto+=$preciomaxunitario;
+	
+}
+$costomanodeobra=round($conf['porcentajemanoobra']/100*$totalprecioproducto,2);
+$costofabricacion=round($conf['porcentajecostofabricacion']/100*$totalprecioproducto,2);
+$costoproduccion=$totalprecioproducto+$costomanodeobra+$costofabricacion;
+
+$costominimodeproduccion=round($conf['costominimodeproduccion']/100*$costoproduccion,2);
+$costomaximodeproduccion=round($conf['costomaximodeproduccion']/100*$costoproduccion,2);
+/*
+print_r($conf);
+echo $totalprecioproducto."<br>";
+echo $costomanodeobra."<br>";
+echo $costofabricacion."<br>";
+echo $costoproduccion."<br>";
+echo $costominimodeproduccion."<br>";
+echo $costomaximodeproduccion."<br>";
+*/
+
+$totalprecioTodosProductos=$totalprecioproducto*$cantidad;
+//echo $totalprecioTodosProductos;
+/*$preciomaximo=$compra->preciomaximo($codigoproducto);
+	$preciomaximo=array_shift($preciomaximo);
+
+	echo $codigoproducto;
+	echo "<pre>";
+	print_r($preciomaximo);
+	echo "</pre>";
+	*/	
+	$totalprecioproducto=str_replace(",",".", $totalprecioproducto);
 $valores=array(	"fechacompra"=>"'$fechaproduccion'",
 				"codproductos"=>"'$codproductos'",
 				"cantidad"=>"'$cantidad'",
 				"cantidadesperada"=>"'$cantidadesperada'",
-				"preciounitario"=>"'0'",
-				"total"=>"'0'",
+				"preciounitario"=>"'$totalprecioproducto'",
+				"total"=>"'$totalprecioTodosProductos'",
 				"codproveedor"=>"'0'",
 				"fechavencimiento"=>"'$fechavencimiento'",
 				"observacion"=>"'$observacion - Procesado'",
 				"cantidadstock"=>"'$cantidad'",
+				
+				"costominimo"=>"'$costominimodeproduccion'",
+				"costomaximo"=>"'$costomaximodeproduccion'",
+				"manoobra"=>"'$costomanodeobra'",
+				"costofabricacion"=>"'$costofabricacion'",
+				"tipo"=>"'Procesado'",
+				
 				);
 $compra->insertar($valores);
 foreach($p as $pro){
@@ -38,7 +87,9 @@ foreach($p as $pro){
 	$cantidadproducto=$pro['cantidad'];	
 	$cantidadtotalproducto=$cantidadproducto;
 	if($codigoproducto==""){break;}
+	
 	foreach($compra->mostrarTodo("codproductos=$codigoproducto and cantidadstock>0","fechacompra") as $inv){
+		
 		if((float)$cantidadproducto<=(float)$inv['cantidadstock']){
 			//echo "si";
 			//$mensaje[]="Sus Ventas de PRODUCTOS SE REGISTRO CORRECTAMENTE";
