@@ -21,16 +21,16 @@ include_once '../../cabecerahtml.php';
                 <?php campos("","id","hidden",$id);?>
 				<table class="tablareg">
 					<tr>
-						<td><?php campos("Porcentaje de la Mano de Obra","porcentajemanoobra","text",$conf['porcentajemanoobra'],1,array("required"=>"required"));?></td>
+						<td><?php campos("Porcentaje de la Mano de Obra","porcentajemanoobra","text",$conf['porcentajemanoobra'],1,array("required"=>"required"));?>%</td>
 					</tr>
                     <tr>
-						<td><?php campos("Porcentaje de Coste Indirecto de Fabricación","porcentajecostofabricacion","text",$conf['porcentajecostofabricacion']);?></td>
+						<td><?php campos("Porcentaje de Coste Indirecto de Fabricación","porcentajecostofabricacion","text",$conf['porcentajecostofabricacion']);?>%</td>
 					</tr>
                     <tr>
-						<td><?php campos("Porcentaje del Costo Mínimo de Producción","costominimodeproduccion","text",$conf['costominimodeproduccion']);?></td>
+						<td><?php campos("Porcentaje del Costo Mínimo de Producción","costominimodeproduccion","text",$conf['costominimodeproduccion']);?>%</td>
 					</tr>
                     <tr>
-						<td><?php campos("Porcentaje del Costo Máximo de Producción","costomaximodeproduccion","text",$conf['costomaximodeproduccion']);?></td>
+						<td><?php campos("Porcentaje del Costo Máximo de Producción","costomaximodeproduccion","text",$conf['costomaximodeproduccion']);?>%</td>
 					</tr>
 					<tr><td><?php campos("Modificar","guardar","submit");?></td><td></td></tr>
 				</table>
