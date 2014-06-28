@@ -15,7 +15,9 @@ class PDF extends PPDF{
 		$this->Ln();
 		$this->TituloCabecera(10,"N");
 		$this->TituloCabecera(55,"Nombre Producto");
+		$this->TituloCabecera(15,"Uni");
 		$this->TituloCabecera(15,"Cant");
+		
 		$this->TituloCabecera(15,"PrecUni");
 		$this->TituloCabecera(15,"Total");
 		$this->TituloCabecera(20,"CantStock");
@@ -69,7 +71,9 @@ foreach($compra->mostrarTodos($where,"fechacompra") as $inv){$i++;
 	$prov=array_shift($proveedor->mostrar($inv['codproveedor']));
 	$pdf->CuadroCuerpo(10,$i,0,"R");
 	$pdf->CuadroCuerpo(55,$pro['nombre'],0,"");
+$pdf->CuadroCuerpo(15,$pro['unidad'],0,"");
 	$pdf->CuadroCuerpo(15,($inv['cantidad']),1,"R",1);
+		
 	$pdf->CuadroCuerpo(15,($inv['preciounitario']),1,"R",1);
 	$pdf->CuadroCuerpo(15,($inv['total']),1,"R",1);
 	$pdf->CuadroCuerpo(20,($inv['cantidadstock']),1,"R",1);
@@ -80,7 +84,7 @@ foreach($compra->mostrarTodos($where,"fechacompra") as $inv){$i++;
 	$pdf->ln();
 }
 $pdf->Linea();
-$pdf->CuadroCuerpoResaltar(65,"Totales",1,"R",0);
+$pdf->CuadroCuerpoResaltar(80,"Totales",1,"R",0);
 $pdf->CuadroCuerpoResaltar(15,$cantidadt,1,"R",1);
 $pdf->CuadroCuerpoResaltar(15,$preciot,1,"R",1);
 $pdf->CuadroCuerpoResaltar(15,$totalt,1,"R",1);

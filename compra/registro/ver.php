@@ -24,6 +24,7 @@ $pdf->AddPage();
 mostrarI(array("Fecha de Compra"=>fecha2Str($pro['fechacompra']),
 				"Producto"=>$pro['nombre'],
 				"Cantidad"=>$mp['cantidad'],
+				"Unidad"=>$pro['unidad'],
 				"Precio Unitario"=>$mp['preciounitario'],
 				"Total"=>$mp['total'],
 				"Cantidad en Stock"=>$mp['cantidadstock'],
