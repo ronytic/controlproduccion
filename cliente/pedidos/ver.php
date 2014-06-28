@@ -24,6 +24,7 @@ $pdf->AddPage();
 mostrarI(array("Cliente"=>$cli['nombre'],
 				"Productos"=>$prod['nombre'],
 				"Cantidad"=>$ped['cantidad'],
+				"Unidad"=>$prod['unidad'],
 				"Fecha de Pedido"=>fecha2Str($ped['fechapedido']),
 				"Fecha de Entrega"=>fecha2Str($ped['fechaentrega']),
 				"Estado"=>$ped['estado'],
