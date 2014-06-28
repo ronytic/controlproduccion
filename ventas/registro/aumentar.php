@@ -18,7 +18,7 @@ $pro=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre","");
             <?php foreach($productos->mostrarTodo("","nombre") as $pr){$i++;
             $sum=array_shift($compra->sumar($pr['codproductos']));
             $sumatotal=$sum['cantidadtotalstock']!=""?$sum['cantidadtotalstock']:'0';?>
-            <option value="<?php echo $pr['codproductos']?>" rel="<?php echo $sumatotal;?>"><?php echo $pr['nombre']." - Stock: ".$sumatotal;?></option>
+            <option value="<?php echo $pr['codproductos']?>" rel="<?php echo $sumatotal;?>"><?php echo $pr['nombre']." - Stock: ".$sumatotal." ".$pr['unidad'];?></option>
             <?php }?>
     	</select>
     </td>
