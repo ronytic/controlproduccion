@@ -7,6 +7,7 @@ extract($_POST);
 //empieza la copia de archivos
 $valores=array(	"nombre"=>"'$nombre'",
 				"descripcion"=>"'$descripcion'",
+				"unidad"=>"'$unidad'",
 				);
 				$productos->actualizar($valores,$id);
 				$mensaje[]="SUS DATOS SE GUARDARON CORRECTAMENTE";

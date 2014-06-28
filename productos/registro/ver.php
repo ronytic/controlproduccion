@@ -18,7 +18,8 @@ $pdf=new PDF("P","mm","letter");
 
 $pdf->AddPage();
 mostrarI(array("Nombre"=>$pro['nombre'],
-				"Descripcion"=>$pro['descripcion'],
+				"Descripción"=>$pro['descripcion'],
+				"Unidad"=>$pro['unidad'],
 			));
 
 /*$foto="../foto/".$emp['foto'];

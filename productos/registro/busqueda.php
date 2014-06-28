@@ -7,7 +7,7 @@ if (!empty($_POST)) {
 
 	$productos=new productos;
 	$pro=$productos->mostrarTodo("nombre LIKE '%$nombre%'");
-	$titulo=array("nombre"=>"Nombre","descripcion"=>"Descripción");
+	$titulo=array("nombre"=>"Nombre","descripcion"=>"Descripción","unidad"=>"Unidad",);
 	listadoTabla($titulo,$pro,1,"modificar.php","eliminar.php","ver.php");
 }
 ?>
