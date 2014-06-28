@@ -15,6 +15,7 @@ class PDF extends PPDF{
 		$this->TituloCabecera(40,"Compra Total");
 		$this->TituloCabecera(40,"Venta Total");
 		$this->TituloCabecera(40,"Stock Inventario");
+		$this->TituloCabecera(20,"Unidad");
 	}	
 }
 
@@ -79,7 +80,7 @@ foreach($productos->mostrarTodos($where,"nombre") as $inv){$i++;
 	$pdf->CuadroCuerpo(40,$cantidadventatotal,1,"R",1);
 	$pdf->CuadroCuerpo(40,$cantidadstock,1,"R",1);
 	
-	
+	$pdf->CuadroCuerpo(20,$pro['unidad'],0,"");
 	$pdf->ln();
 }
 $pdf->Linea();

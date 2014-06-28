@@ -15,6 +15,7 @@ class PDF extends PPDF{
 		$this->TituloCabecera(40,"Compra Total");
 		$this->TituloCabecera(40,"Venta Total");
 		$this->TituloCabecera(40,"Stock Inventario");
+		$this->TituloCabecera(20,"Unidad");
 	}	
 }
 
@@ -71,11 +72,12 @@ foreach($productos->mostrarTodos($where,"nombre") as $inv){$i++;
 
 	/**/
 	
-	$pdf->CuadroCuerpo(10,$i,0,"R");
-	$pdf->CuadroCuerpo(80,$inv['nombre'],0,"");
+	$pdf->CuadroCuerpo(10,$i,1,"R",1);
+	$pdf->CuadroCuerpo(80,$inv['nombre'],1,"",1);
 	$pdf->CuadroCuerpo(40,$cantidadcompratotal,1,"R",1);
 	$pdf->CuadroCuerpo(40,$cantidadventatotal,1,"R",1);
 	$pdf->CuadroCuerpo(40,$cantidadstock,1,"R",1);
+	$pdf->CuadroCuerpo(20,$inv['unidad'],1,"",1);
 	$j=0;
 	$ven=$venta->mostrarTodo("codproductos=".$inv['codproductos']."  $fechas ");
 	if(count($ven)){
@@ -83,8 +85,8 @@ foreach($productos->mostrarTodos($where,"nombre") as $inv){$i++;
 		
 		$pdf->CuadroCuerpo(90,"",0,"C",0);
 		$pdf->CuadroCuerpoPersonalizado(10,"N",0,"C",1,"B");
-		$pdf->CuadroCuerpoPersonalizado(20,"Cant",0,"C",1,"B");
-		$pdf->CuadroCuerpoPersonalizado(20,"Cant",0,"C",1,"B");
+		$pdf->CuadroCuerpoPersonalizado(20,"Cantidad",0,"C",1,"B");
+		$pdf->CuadroCuerpoPersonalizado(20,"Precio",0,"C",1,"B");
 		$pdf->CuadroCuerpoPersonalizado(20,"Total",0,"C",1,"B");
 		$pdf->CuadroCuerpoPersonalizado(20,"FechaVen",0,"C",1,"B");
 		$pdf->CuadroCuerpoPersonalizado(40,"Cliente",0,"C",1,"B");
