@@ -4,7 +4,7 @@ $folder="../../";
 $titulo="Registro de Producción";
 include_once("../../class/productos.php");
 $productos=new productos;
-$pro=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre","");
+$pro=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre,unidad"," - ");
 
 include_once("../../class/proveedor.php");
 $proveedor=new proveedor;

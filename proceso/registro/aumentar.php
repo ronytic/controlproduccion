@@ -13,9 +13,10 @@ $compra=new compra;
 				<td width="500"><select name="p[<?php echo $l?>][codproductos]" rel-linea="<?php echo $l?>" class="productos p">									
                 	<option value="">Seleccionar</option>
                 	<?php foreach($productos->mostrarTodo("","nombre") as $pr){$i++;
+					print_r($pr);
 					$sum=array_shift($compra->sumar($pr['codproductos']));
 					$sumatotal=$sum['cantidadtotalstock']!=""?$sum['cantidadtotalstock']:'0';?>
-                    <option value="<?php echo $pr['codproductos']?>" rel="<?php echo $sumatotal;?>"><?php echo $pr['nombre']." - Cantidad Stock: ".$sumatotal." - ".$pr['Unidad']?></option>
+                    <option value="<?php echo $pr['codproductos']?>" rel="<?php echo $sumatotal;?>"><?php echo $pr['nombre']." - Cantidad Stock: ".$sumatotal." - Unidad: ".$pr['unidad']?></option>
                     <?php }?>
                 </select></td>
                         
