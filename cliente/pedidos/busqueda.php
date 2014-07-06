@@ -20,12 +20,17 @@ if (!empty($_POST)) {
 		$cli=array_shift($cliente->mostrar($p['codcliente']));
 		$datos[$i]['codcliente']=$p['codcliente'];
 		$datos[$i]['nombre']=$prod['nombre'];
+		
+		$datos[$i]['cantidad']=$p['cantidad'];
+		$datos[$i]['preciounitario']=$p['preciounitario'];
+		$datos[$i]['total']=$p['total'];
+		
 		$datos[$i]['cliente']=$cli['nombre'];
 		$datos[$i]['fechaentrega']=$p['fechaentrega'];
 		$datos[$i]['fechapedido']=$p['fechapedido'];
 		$datos[$i]['estado']=$p['estado'];
 	}
-	$titulo=array("nombre"=>"Nombre","cliente"=>"Cliente","fechaentrega"=>"Fecha de Entrega","fechapedido"=>"Fecha de Pedido","estado"=>"Estado");
+	$titulo=array("nombre"=>"Nombre","cantidad"=>"Cantidad","preciounitario"=>"Precio Unitario","total"=>"Total","fechaentrega"=>"Fecha de Entrega","fechapedido"=>"Fecha de Pedido","estado"=>"Estado","cliente"=>"Cliente");
 	listadoTabla($titulo,$datos,1,"modificar.php","eliminar.php","ver.php");
 }
 ?>
