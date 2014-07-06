@@ -22,7 +22,7 @@ $pro=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre","");
             <?php }?>
     	</select>
     </td>
-    <td><?php campos("","m[$l][cantidad]","number","0",0,array("class"=>"der cantidad","min"=>0,"style"=>"width:80px;","rel"=>$l));?></td>
+    <td><?php campos("","m[$l][cantidad]","number","0",0,array("class"=>"der cantidad","min"=>0,"style"=>"width:80px;","rel"=>$l,"step"=>"0.1"));?></td>
 
     <td><?php campos("","m[$l][preciounitario]","number","0.00",0,array("step"=>"0.1","min"=>0,"class"=>"der preciounitario","style"=>"width:80px;","rel"=>$l));?></td>
 

@@ -12,7 +12,7 @@ $pro=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre,unida
 	<td><?php echo $l;?></td>
     <td><?php campos("","m[$l][codproductos]","select",$pro,1,array("required"=>"required","class"=>"select"));?></td>
     
-    <td><?php campos("","m[$l][cantidad]","number","0",0,array("class"=>"cantidad der","min"=>0,"style"=>"","rel"=>$l));?></td>
+    <td><?php campos("","m[$l][cantidad]","number","0",0,array("class"=>"cantidad der","min"=>0,"style"=>"","rel"=>$l,"step"=>"0.1"));?></td>
     
     <td><?php campos("","m[$l][preciounitario]","number","0.00",0,array("step"=>"0.1","min"=>0,"class"=>"preciounitario der","style"=>"","rel"=>$l));?></td>
     
