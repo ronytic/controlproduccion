@@ -51,8 +51,9 @@ echo $costoproduccion."<br>";
 echo $costominimodeproduccion."<br>";
 echo $costomaximodeproduccion."<br>";
 */
+///Cambio del Codigo por $cantidadesperada, si no es solo colocar $cantidad
 
-$totalprecioTodosProductos=$totalprecioproducto*$cantidad;
+$totalprecioTodosProductos=$totalprecioproducto*$cantidadesperada;
 //echo $totalprecioTodosProductos;
 /*$preciomaximo=$compra->preciomaximo($codigoproducto);
 	$preciomaximo=array_shift($preciomaximo);
