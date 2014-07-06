@@ -8,6 +8,9 @@ extract($_POST);
 $valores=array(	"codcliente"=>"'$codcliente'",
 				"codproductos"=>"'$codproductos'",
 				"cantidad"=>"'$cantidad'",
+				"preciounitario"=>"'$preciounitario'",
+				"total"=>"'$total'",
+				
 				"fechapedido"=>"'$fechapedido'",
 				"fechaentrega"=>"'$fechaentrega'",
 				"estado"=>"'$estado'",

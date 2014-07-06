@@ -19,6 +19,16 @@ $estado=array("Pendiente"=>"Pendiente","Entregado"=>"Entregado");
 include_once '../../funciones/funciones.php';
 include_once '../../cabecerahtml.php';
 ?>
+<script language="javascript">
+	$(document).on("ready",function(){
+		$("#cantidad,#preciounitario").on("change",function(){
+			cantidad=$("#cantidad").val()
+			preciounitario=	$("#preciounitario").val()
+			var total=(cantidad*preciounitario).toFixed(2);
+			$("#total").val(total)
+		});
+	});
+</script>
 <?php include_once '../../cabecera.php';?>
 <div class="grid_12">
 	<div class="contenido">
@@ -35,7 +45,13 @@ include_once '../../cabecerahtml.php';
 						<td><?php campos("Producto","codproductos","select",$prod,0,"",$ped['codproductos']);?></td>
 					</tr>
 					<tr>
-						<td><?php campos("Cantidad","cantidad","text",$ped['cantidad']);?></td>
+						<td><?php campos("Cantidad","cantidad","number",$ped['cantidad'],0,array("step"=>"0.1"));?></td>
+					</tr>
+                    <tr>
+						<td><?php campos("Precio Unitario","preciounitario","number",$ped['preciounitario'],0,array("step"=>"0.1"));?></td>
+					</tr>
+                    <tr>
+						<td><?php campos("Total","total","number",$ped['total'],0,array("step"=>"0.1","readonly"=>"readonly"));?></td>
 					</tr>
 					<tr>
 						<td><?php campos("Fecha de Pedido","fechapedido","date",$ped['fechapedido'],0,array("required"=>"required"));?></td>
