@@ -15,15 +15,29 @@ if(($_FILES['curriculum']['type']=="application/pdf" || $_FILES['curriculum']['t
 	$mensaje[]="Archivo no válido del curriculum. Verifique e intente nuevamente";
 }
 */
-$valores=array(	"codcliente"=>"'$codcliente'",
-				"codproductos"=>"'$codproductos'",
-				"cantidad"=>"'$cantidad'",
+/*echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+*/
+foreach($m as $p){
+	/*echo "<pre>";
+	print_r($p);
+	echo "</pre>";*/
+	$valores=array(	"codcliente"=>"'$codcliente'",
+				"codproductos"=>"'".$p['codproductos']."'",
+				"cantidad"=>"'".$p['cantidad']."'",
+				"preciounitario"=>"'".$p['preciounitario']."'",
+				"total"=>"'".$p['total']."'",
+				
 				"fechapedido"=>"'$fechapedido'",
 				"fechaentrega"=>"'$fechaentrega'",
 				"estado"=>"'$estado'",
 				"observacion"=>"'$observacion'",
 				);
-				$pedidos->insertar($valores);
+				$pedidos->insertar($valores);	
+}
+
+
 				$mensaje[]="SUS DATOS SE GUARDARON CORRECTAMENTE";
 
 
