@@ -16,8 +16,10 @@ if (!empty($_POST)) {
 
 	$datos=array();
 	foreach($ped as $p){$i++;
+		
 		$prod=array_shift($productos->mostrar($p['codproductos']));
 		$cli=array_shift($cliente->mostrar($p['codcliente']));
+		$datos[$i]['codpedidos']=$p['codpedidos'];
 		$datos[$i]['codcliente']=$p['codcliente'];
 		$datos[$i]['nombre']=$prod['nombre'];
 		
