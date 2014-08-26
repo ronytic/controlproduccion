@@ -228,7 +228,7 @@ div.usuario{
 	box-shadow:#999 2px 2px 3px;
 	padding:5px;
 }
-::selection{text-shadow:0 0 20px #017ecd,1px 1px 1px #808080}
+::selection{/*text-shadow:0 0 20px #017ecd,1px 1px 1px #808080*/}
 .titulom{
 	-moz-border-radius: 5px; -webkit-border-radius: 5px; -msie-border-radius: 5px;
 	background : -linear-gradient(top, rgb(97, 195, 97) 00%, rgb(81, 163, 81) 100%);	
