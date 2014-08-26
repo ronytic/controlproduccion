@@ -30,6 +30,9 @@ include_once '../../cabecerahtml.php';
                     <tr>
 						<td><?php campos("Departamento","departamento","text",$cli['departamento'],0,array("required"=>"required"));?></td>
 					</tr>
+                    <tr>
+						<td><?php campos("Gasto de Distribución","gasto","text",$cli['gasto'],0,array("required"=>"required"));?></td>
+					</tr>
 					<tr>
 						<td><?php campos("Observación","observacion","text",$cli['observacion'],1,array("required"=>"required"));?></td>
 					</tr>

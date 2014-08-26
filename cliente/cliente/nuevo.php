@@ -26,6 +26,9 @@ include_once '../../cabecerahtml.php';
 						<td><?php campos("Departamento","departamento","text","",0,array("required"=>"required"));?></td>
 					</tr>
                     <tr>
+						<td><?php campos("Gasto de Distribución","gasto","text","",0,array("required"=>"required"));?></td>
+					</tr>
+                    <tr>
 						<td><?php campos("Observación","observacion","text","",0,array("required"=>"required"));?></td>
 					</tr>
 					<tr><td><?php campos("Guardar","guardar","submit");?></td><td></td></tr>

@@ -19,6 +19,7 @@ $valores=array(	"nombre"=>"'$nombre'",
 				"direccion"=>"'$direccion'",
 				"telefono"=>"'$telefono'",
 				"departamento"=>"'$departamento'",
+				"gasto"=>"'$gasto'",
 				"observacion"=>"'$observacion'",
 				);
 				$cliente->insertar($valores);

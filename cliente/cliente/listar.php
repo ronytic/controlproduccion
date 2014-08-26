@@ -15,9 +15,9 @@ include_once "../../cabecerahtml.php";
                 <table class="tablabus">
                     <tr>
                         <td><?php campos("Nombre","nombre","text","",1,array("size"=>15));?></td>
-                        <td><?php campos("Dirección","direccion","text","",1,array("size"=>15));?></td>
-                        <td><?php campos("Teléfono","telefono","text","",1,array("size"=>15));?></td>
-                        <td><?php campos("Observación","observacion","text","",1,array("size"=>15));?></td>
+                        <td><?php campos("Dirección","direccion","text","",0,array("size"=>15));?></td>
+                        <td><?php campos("Teléfono","telefono","text","",0,array("size"=>15));?></td>
+                        <td><?php campos("Observación","observacion","text","",0,array("size"=>15));?></td>
                         <td><?php campos("Buscar","enviar","submit","",0,array("size"=>15));?></td>
                     </tr>
                 </table>
