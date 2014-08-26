@@ -20,6 +20,9 @@ include_once '../../cabecerahtml.php';
 						<td><?php campos("Cantidad","cantidad","text","",1,array("required"=>"required"));?></td>
 					</tr>
                     <tr>
+						<td><?php campos("Unidad","unidad","text","",1,array("required"=>"required"));?></td>
+					</tr>
+                    <tr>
 						<td><?php campos("Observación","observacion","text");?></td>
 					</tr>
 					<tr><td><?php campos("Guardar","guardar","submit");?></td><td></td></tr>

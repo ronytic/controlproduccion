@@ -6,8 +6,8 @@ if (!empty($_POST)) {
 	extract($_POST);
 
 	$envase=new envase;
-	$env=$envase->mostrarTodo("cantidad LIKE '%$cantidad%'","cantidad");
-	$titulo=array("cantidad"=>"Cantidad","observacion"=>"Observación");
+	$env=$envase->mostrarTodo("cantidad LIKE '%$cantidad%' and unidad LIKE '%$unidad%'","cantidad,unidad");
+	$titulo=array("cantidad"=>"Cantidad","unidad"=>"Unidad","observacion"=>"Observación");
 	listadoTabla($titulo,$env,1,"modificar.php","eliminar.php","ver.php");
 }
 ?>

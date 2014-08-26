@@ -26,6 +26,9 @@ include_once '../../cabecerahtml.php';
 						<td><?php campos("Cantidad","cantidad","text",$env['cantidad'],1,array("required"=>"required"));?></td>
 					</tr>
                     <tr>
+						<td><?php campos("Unidad","unidad","text",$env['unidad'],1,array("required"=>"required"));?></td>
+					</tr>
+                    <tr>
 						<td><?php campos("Observación","observacion","text",$env['observacion']);?></td>
 					</tr>
 					<tr><td><?php campos("Modificar","guardar","submit");?></td><td></td></tr>

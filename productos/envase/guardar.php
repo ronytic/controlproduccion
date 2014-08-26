@@ -16,6 +16,7 @@ if(($_FILES['curriculum']['type']=="application/pdf" || $_FILES['curriculum']['t
 }
 */
 $valores=array(	"cantidad"=>"'$cantidad'",
+				"unidad"=>"'$unidad'",
 				"observacion"=>"'$observacion'",
 				);
 				$envase->insertar($valores);

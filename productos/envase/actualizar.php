@@ -6,6 +6,7 @@ $envase=new envase;
 extract($_POST);
 //empieza la copia de archivos
 $valores=array(	"cantidad"=>"'$cantidad'",
+				"unidad"=>"'$unidad'",
 				"observacion"=>"'$observacion'",
 				);
 				$envase->actualizar($valores,$id);
