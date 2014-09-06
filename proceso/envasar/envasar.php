@@ -103,6 +103,7 @@ $(document).on("ready",function(){
 					<tr id="marca">
                     	<td colspan="2" class="subir"><a href="#" id="aumentar">Aumentar</a></td>
                         <td colspan="1"><div class="rojoC pequeno">La Cantidad Introducida se utilizará para envasar los productos, no se podrá modificar posteriormente</div><?php campos("Guardar","guardar","submit","",0,array("disabled"=>"disabled"));?></td>
+                        <td></td>
                         <td class="subir"><input type="text" value="0.00" class="der" style="width:80px;" readonly id="tt" name="tt"></td></tr>
 				</table>
                 </form>

@@ -41,19 +41,19 @@ foreach($m as $ma){
 			if((float)$cantidadventatotal<=(float)$inv['cantidadstock']){
 				//echo "si";
 				$mensaje[]="Se Registraron los envases de los los productos correctamente";
-				$cantidad=$inv['cantidadstock']-$cantidadventatotal;
-				$valores=array("cantidadstock"=>"$cantidad","fechaventa"=>"'$fecha'");
-				$compra->actualizar($valores,$inv["codcompra"]);
+				$cantidad2=$inv['cantidadstock']-$cantidadventatotal;
+				$valores=array("cantidadstock"=>"$cantidad2","fechaventa"=>"'$fecha'");
+				//$compra->actualizar($valores,$inv["codcompra"]);
 				
 				$valores=array(	
 					"codproductos"=>"'$codproductos'",
 					"codenvase"=>"'$codenvase'",
-					"cantidad"=>"'$cantidadventatotal'",
+					"cantidad"=>"'$cantidad'",
 					"total"=>"'$total'",
 
 					//"observacion"=>"'$observacion'",
 					);
-				$envasado->insertar($valores);
+				//$envasado->insertar($valores);
 				//echo "Hola";
 				/*echo "<pre>";
 				print_r($valores);
@@ -63,7 +63,7 @@ foreach($m as $ma){
 				//echo $cantidadsalida;
 				$cantidad=$cantidad-$inv['cantidadstock'];
 				$valores=array("cantidadstock"=>0,"fechaventa"=>"'$fecha'");
-				$compra->actualizar($valores,$inv["codcompra"]);
+				//$compra->actualizar($valores,$inv["codcompra"]);
 			}
 		}
 	}
