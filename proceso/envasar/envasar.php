@@ -37,7 +37,8 @@ $(document).on("ready",function(){
 	$(document).on("change",".productos,.cantidad",function(e){
 		var lin=$(this).attr("rel");
 					
-		var	unidad=$(".productos[rel="+lin+"]").attr("rel");
+		//alert(lin);
+		var	unidad=$(".productos[rel="+lin+"]>option:selected").attr("rel");
 		var cantidad=$(".cantidad[rel="+lin+"]").val();
 		var total=(cantidad*unidad).toFixed(2);
 		$(".total[rel="+lin+"]").val(total);
@@ -46,11 +47,12 @@ $(document).on("ready",function(){
             totalt+=parseFloat($(this).val());
 			//alert(totalt);
         });
+		//alert(unidad)
 		$("#tt").val(totalt.toFixed(2));
 		if(totalt>totalcantidadenvasar){
 			$("#formulario").attr("onsubmit","return false");
 			$("#guardar").attr("disabled","disabled");
-			alert("la Cantidad Introducida para envasar es mayor a la cantida en Stock");	
+			alert("La Cantidad Introducida para envasar es mayor a la cantidad en Stock");	
 		}else{
 			$("#formulario").removeAttr("onsubmit");
 			$("#guardar").removeAttr("disabled");

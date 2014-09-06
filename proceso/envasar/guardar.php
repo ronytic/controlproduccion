@@ -1,8 +1,8 @@
 <?php
 include_once("../../login/check.php");
 if(!empty($_POST)):
-include_once("../../class/venta.php");
-$venta=new venta;
+include_once("../../class/envasado.php");
+$envasado=new envasado;
 include_once("../../class/compra.php");
 $compra=new compra;
 
@@ -17,9 +17,9 @@ if(($_FILES['curriculum']['type']=="application/pdf" || $_FILES['curriculum']['t
 	$mensaje[]="Archivo no válido del curriculum. Verifique e intente nuevamente";
 }
 */
-/*echo "<pre>";
+echo "<pre>";
 print_r($_POST);
-echo "</pre>";*/
+echo "</pre>";
 
 
 foreach($m as $ma){
@@ -44,17 +44,16 @@ foreach($m as $ma){
 				$valores=array("cantidadstock"=>"$cantidad","fechaventa"=>"'$fecha'");
 				$compra->actualizar($valores,$inv["codcompra"]);
 				
-				$valores=array(	"fechaventa"=>"'$fechaventa'",
+				$valores=array(	
 					"codproductos"=>"'$codproductos'",
+					"codenvase"=>"'$codenvase'",
 					"cantidad"=>"'$cantidadventatotal'",
-					"preciounitario"=>"'$preciounitario'",
 					"total"=>"'$total'",
-					"codcliente"=>"'$codcliente'",
-					"coddistribuidor"=>"'$coddistribuidor'",
-					"codvendedor"=>"'$codvendedor'",
-					"observacion"=>"'$observacion'",
+
+					//"observacion"=>"'$observacion'",
 					);
-				//$venta->insertar($valores);
+				$envasado->insertar($valores);
+				echo "Hola";
 				/*echo "<pre>";
 				print_r($valores);
 				echo "</pre>";*/
