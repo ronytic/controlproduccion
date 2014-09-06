@@ -46,6 +46,7 @@ foreach($m as $ma){
 				$compra->actualizar($valores,$inv["codcompra"]);
 				
 				$valores=array(	
+					"codcompra"=>"'$codcompra'",
 					"codproductos"=>"'$codproductos'",
 					"codenvase"=>"'$codenvase'",
 					"cantidad"=>"'$cantidad'",

@@ -90,6 +90,7 @@ $(document).on("ready",function(){
 			<fieldset>
 				<div class="titulo"><?php echo $titulo?> - <?php echo $prod['nombre']." - ".$com['cantidadstock']." ".$prod['unidad']?></div>
                 <form action="guardar.php" method="post" enctype="multipart/form-data" id="formulario">
+                <input type="hidden" name="codcompra" value="<?php echo $id?>">
                 <input type="hidden" name="codproductos" value="<?php echo $prod['codproductos']?>">
 				<table class="tablareg">
                     <tr class="titulo">
