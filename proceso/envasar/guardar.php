@@ -43,7 +43,7 @@ foreach($m as $ma){
 				$mensaje[]="Se Registraron los envases de los los productos correctamente";
 				$cantidad2=$inv['cantidadstock']-$cantidadventatotal;
 				$valores=array("cantidadstock"=>"$cantidad2","fechaventa"=>"'$fecha'");
-				//$compra->actualizar($valores,$inv["codcompra"]);
+				$compra->actualizar($valores,$inv["codcompra"]);
 				
 				$valores=array(	
 					"codproductos"=>"'$codproductos'",
@@ -53,7 +53,7 @@ foreach($m as $ma){
 
 					//"observacion"=>"'$observacion'",
 					);
-				//$envasado->insertar($valores);
+				$envasado->insertar($valores);
 				//echo "Hola";
 				/*echo "<pre>";
 				print_r($valores);
@@ -63,7 +63,7 @@ foreach($m as $ma){
 				//echo $cantidadsalida;
 				$cantidad=$cantidad-$inv['cantidadstock'];
 				$valores=array("cantidadstock"=>0,"fechaventa"=>"'$fecha'");
-				//$compra->actualizar($valores,$inv["codcompra"]);
+				$compra->actualizar($valores,$inv["codcompra"]);
 			}
 		}
 	}
