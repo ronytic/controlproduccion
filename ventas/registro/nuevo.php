@@ -56,7 +56,7 @@ $(document).on("ready",function(){
     });
 	$(document).on("change",".productos",function(){
 		var lin=$(this).attr("rel");
-		var can=$(".productos[rel="+lin+"]>option:selected").attr("rel");
+		var can=$(".productos[rel="+lin+"]>optgroup>option:selected").attr('rel');
 		$(".cantidad[rel="+lin+"]").attr({'max':can});
 	});
 });
@@ -71,6 +71,7 @@ $(document).on("ready",function(){
 				<table class="tablareg">
                 	<tr class="titulo">
                         <td colspan="2">Fecha de Venta</td>
+                        <td colspan="1">Código de Control</td>
                         <td width="450" style="width:450px !important">Cliente</td>
                         <td>Distribuidor</td>
                         <td>Vendedor</td>
@@ -78,6 +79,7 @@ $(document).on("ready",function(){
                     </tr>
                     <tr>
                     	<td colspan="2"><?php campos("","fechaventa","date",date("Y-m-d"),0,array("required"=>"required","style"=>"width:130px"));?></td>
+                        <td><?php campos("","codigocontrol","text","",0,array("placeholder"=>"Ingrese su Código de Control","size"=>15));?></td>
                         <td><?php campos("","codcliente","select",$cli);?></td>
                         <td><?php campos("","coddistribuidor","select",$dist);?></td>
                         <td><?php campos("","codvendedor","select",$ven);?></td>
@@ -85,7 +87,7 @@ $(document).on("ready",function(){
                     </tr>
                     <tr class="titulo">
                     	<td width="20">N</td>
-                        <td width="50" style="width:450px !important" colspan="2">Producto</td>
+                        <td width="50" style="width:450px !important" colspan="3">Producto</td>
                         <td>Cantidad</td>
                         <td>Precio Unitario</td>
                         <td>Total</td>
@@ -94,7 +96,7 @@ $(document).on("ready",function(){
                     
 					<tr id="marca">
                     	<td colspan="2" class="subir"><a href="#" id="aumentar">Aumentar</a></td>
-                        <td colspan="3"><div class="rojoC pequeno">La Cantidad Introducida se utilizará para descontar del inventario, Revíselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD y PRECIO de venta</div><?php campos("Guardar","guardar","submit");?></td>
+                        <td colspan="4"><div class="rojoC pequeno">La Cantidad Introducida se utilizará para descontar del inventario, Revíselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD y PRECIO de venta</div><?php campos("Guardar","guardar","submit");?></td>
                         <td class="subir"><input type="text" value="0.00" class="der" style="width:80px;" readonly id="tt" name="tt"></td></tr>
 				</table>
                 </form>
