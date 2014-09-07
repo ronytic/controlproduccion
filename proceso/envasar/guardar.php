@@ -50,6 +50,7 @@ foreach($m as $ma){
 					"codproductos"=>"'$codproductos'",
 					"codenvase"=>"'$codenvase'",
 					"cantidad"=>"'$cantidad'",
+					"cantidadstock"=>"'$cantidad'",
 					"total"=>"'$total'",
 
 					//"observacion"=>"'$observacion'",
