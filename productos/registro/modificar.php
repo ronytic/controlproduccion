@@ -28,6 +28,9 @@ include_once '../../cabecerahtml.php';
                     <tr>
 						<td><?php campos("Unidad","unidad","text",$pro['unidad']);?></td>
 					</tr>
+                    <tr>
+						<td><?php campos("Tiempo de Producción - en minutos","tiempoproduccion","number",$pro['tiempoproduccion'],0,array("min"=>0));?></td>
+					</tr>
 					<tr>
 						<td><?php campos("Descripción","descripcion","text",$pro['descripcion']);?></td>
 					</tr>
