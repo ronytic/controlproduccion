@@ -7,7 +7,7 @@ class envasado extends bd{
 		return $this->getRecords("codproductos=$codproductos and activo=1");	
 	}
 	function agrupado(){
-		$this->campos=array("sum(cantidad) as cantidadtotal,codenvase,codproductos,codcompra");
+		$this->campos=array("sum(cantidadstock) as cantidadtotal,codenvase,codproductos,codcompra");
 		return $this->getRecords("activo=1","","codproductos,codenvase");	
 	}
 }

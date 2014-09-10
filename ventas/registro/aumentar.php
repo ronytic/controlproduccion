@@ -11,7 +11,7 @@ $pro=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre","");
 include_once("../../class/envasado.php");
 $envasado=new envasado;
 $env=$envasado->agrupado();
-
+//print_r($env);
 include_once("../../class/envase.php");
 $envase=new envase;
 ?>
@@ -35,7 +35,7 @@ $envase=new envase;
 				$enva=$envase->mostrar($e['codenvase']);
 				$enva=array_shift($enva);
 				?>
-				<option value="<?php echo "e-".$e['codproductos']."-".$e['codenvase']."-".$e[]?>" rel="<?php echo $e['cantidadtotal'];?>"><?php echo $prod['nombre']?> - Envase: <?php echo $enva['cantidad']?> <?php echo $enva['unidad']?>  - Stock: <?php echo $e['cantidadtotal']?> Envases</option>	
+				<option value="<?php echo "e-".$e['codproductos']."-".$e['codenvase']."-"?>" rel="<?php echo $e['cantidadtotal'];?>"><?php echo $prod['nombre']?> - Envase: <?php echo $enva['cantidad']?> <?php echo $enva['unidad']?>  - Stock: <?php echo $e['cantidadtotal']?> Envases</option>	
 			<?php }?>
             
             </optgroup>
