@@ -5,8 +5,8 @@ include_once("../../class/configuracion.php");
 $configuracion=new configuracion;
 extract($_POST);
 //empieza la copia de archivos
-$valores=array(	"porcentajecostofabricacion"=>"'$porcentajecostofabricacion'",
-				"porcentajemanoobra"=>"'$porcentajemanoobra'",
+$valores=array(	//"porcentajecostofabricacion"=>"'$porcentajecostofabricacion'",
+				"costomanodeobra"=>"'$costomanodeobra'",
 				"costominimodeproduccion"=>"'$costominimodeproduccion'",
 				"costomaximodeproduccion"=>"'$costomaximodeproduccion'",
 				
