@@ -1,7 +1,7 @@
 <?php
 include_once("../../login/check.php");
 include_once("../../impresion/pdf.php");
-$titulo="Reporte de Venta de Productos";
+$titulo="Reporte de Venta de Productos - Código de Control de Factura";
 extract($_GET);
 class PDF extends PPDF{
 	function Cabecera(){
@@ -19,17 +19,17 @@ class PDF extends PPDF{
 		$this->TituloCabecera(20,"Cant");
 		$this->TituloCabecera(20,"PrecUni");
 		$this->TituloCabecera(20,"Total");
-		//$this->TituloCabecera(20,"CantStock");
+		$this->TituloCabecera(20,"CodControl");
 		$this->TituloCabecera(20,"FechaVen");
 		$this->TituloCabecera(50,"Cliente");
 		$this->TituloCabecera(50,"Distribuidor");
-		$this->TituloCabecera(60,"Observación");
+		$this->TituloCabecera(40,"Observación");
 	}	
 }
 
 
-$codproductos=$codproductos!=""?$codproductos:"%";
-$codcliente=$codcliente!=""?$codcliente:"%";
+$inicial=$inicial!=""?$inicial:"%";
+$final=$final!=""?$final:"%";
 
 
 $existente=$existente=="1"?'and cantidadstock>0':'';
@@ -46,7 +46,7 @@ $venta=new venta;
 $productos=new productos;
 $distribuidor=new distribuidor;
 $cliente=new cliente;
-$where="codproductos LIKE '$codproductos' and codcliente LIKE '$codcliente' $fechas  $existente";
+$where="(codigocontrol BETWEEN '$inicial' and '$final') $fechas  $existente";
 /*if(!empty($fechacontrato)){
 	$where="`fechacontrato`<='$fechacontrato'";
 }
@@ -81,7 +81,7 @@ foreach($venta->mostrarTodos($where,"fechaventa") as $inv){$i++;
 	$pdf->CuadroCuerpo(20,($inv['cantidad']),1,"R",1);
 	$pdf->CuadroCuerpo(20,($inv['preciounitario']),1,"R",1);
 	$pdf->CuadroCuerpo(20,($inv['total']),1,"R",1);
-	//$pdf->CuadroCuerpo(20,($inv['cantidadstock']),1,"R",1);
+	$pdf->CuadroCuerpo(20,($inv['codigocontrol']),1,"R",1);
 	$pdf->CuadroCuerpo(20,fecha2Str($inv['fechaventa']),1,"",1);
 	$pdf->CuadroCuerpo(50,($clie['nombre']),1,"",1);
 	$pdf->CuadroCuerpo(50,($dist['nombre']),1,"",1);

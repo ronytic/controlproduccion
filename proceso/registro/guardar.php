@@ -36,12 +36,13 @@ foreach($p as $pro){
 	$totalprecioproducto+=$preciomaxunitario;
 	
 }
-$costomanodeobra=round($conf['porcentajemanoobra']/100*$totalprecioproducto,2);
-$costofabricacion=round($conf['porcentajecostofabricacion']/100*$totalprecioproducto,2);
-$costoproduccion=$totalprecioproducto+$costomanodeobra+$costofabricacion;
+$costomanodeobra=round($conf['costomanodeobra']*$cantidad,2)+$totalprecioproducto;
+//$costofabricacion=round($conf['porcentajecostofabricacion']/100*$totalprecioproducto,2);
+$costoproduccion=$costomanodeobra;
 
 $costominimodeproduccion=round($conf['costominimodeproduccion']/100*$costoproduccion,2);
 $costomaximodeproduccion=round($conf['costomaximodeproduccion']/100*$costoproduccion,2);
+$costoventa=$costoproduccion;
 /*
 print_r($conf);
 echo $totalprecioproducto."<br>";

@@ -1,6 +1,6 @@
 <?php
 include_once("../../login/check.php");
-$titulo="Reporte de Ventas de Productos";
+$titulo="Reporte de Ventas de Productos - Codigos de Control Factura";
 $folder="../../";
 include_once("../../funciones/funciones.php");
 
@@ -23,8 +23,8 @@ include_once "../../cabecerahtml.php";
             <form id="busqueda" action="busqueda.php" method="post">
                 <table class="tablabus">
                     <tr>
-                        <td colspan="4"><?php campos("Producto","codproductos","select",$prod,0)?></td>
-                        <td colspan="4"><?php campos("Cliente","codcliente","select",$cli,0)?></td>
+                        <td colspan="4"><?php campos("Rango Inicial de La Factura","inicial","text","",0)?></td>
+                        <td colspan="4"><?php campos("Rango Final de la Factura","final","text","",0)?></td>
                         <td><?php campos("Fecha de Inicio","fechainicio","date","")?></td>
                         <td><?php campos("Fecha Fin","fechafin","date","")?></td>
                         <?php /*<td><?php campos("Producto Existente","existente","select",array("0"=>"No","1"=>"Si"))?></td>*/?>
