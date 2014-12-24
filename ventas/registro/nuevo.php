@@ -96,8 +96,8 @@ $(document).on("ready",function(){
                     
 					<tr id="marca">
                     	<td colspan="2" class="subir"><a href="#" id="aumentar">Aumentar</a></td>
-                        <td colspan="4"><div class="rojoC pequeno">La Cantidad Introducida se utilizará para descontar del inventario, Revíselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD y PRECIO de venta</div><?php campos("Guardar","guardar","submit");?></td>
-                        <td class="subir"><input type="text" value="0.00" class="der" style="width:80px;" readonly id="tt" name="tt"></td></tr>
+                        <td colspan="4"><div class="rojoC pequeno">La Cantidad Introducida se utilizará para descontar del inventario, Revíselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD y PRECIO de venta</div><?php campos("Guardar","guardar","submit");?> </td>
+                        <td class="subir"><input type="text" value="0.00" class="der" style="width:80px;" readonly id="tt" name="tt"><br><?php campos("Modo de Pago","modopago","select",array("contado"=>"Contado","credito"=>"Credito"));?></td></tr>
 				</table>
                 </form>
 			</fieldset>

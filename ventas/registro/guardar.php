@@ -8,6 +8,9 @@ $compra=new compra;
 include_once("../../class/envasado.php");
 $envasado=new envasado;
 
+include_once("../../class/ventageneral.php");
+$ventageneral=new ventageneral;
+
 extract($_POST);
 //empieza la copia de archivos
 /*
@@ -24,7 +27,25 @@ echo "<pre>";
 print_r($_POST);
 echo "</pre>";
 */
-
+if($modopago=="contado"){
+	$totalcancelado=$tt;	
+}else{
+	$totalcancelado=0;	
+}
+$valores=array(	
+				"total"=>"'$tt'",
+				"totalcancelado"=>"'$totalcancelado'",
+				"coddistribuidor"=>"'$coddistribuidor'",
+				"codvendedor"=>"'$codvendedor'",
+				"codcliente"=>"'$codcliente'",
+				"codigocontrol"=>"'$codigocontrol'",
+				"fechaventa"=>"'$fechaventa'",
+				"observacion"=>"'$observacion'",
+				"tipoventa"=>"'$modopago'",
+				);
+					$ventageneral->insertar($valores);
+					$ultimo=$ventageneral->last_id();
+					
 foreach($m as $ma){
 	extract($ma);
 	
@@ -63,7 +84,9 @@ foreach($m as $ma){
 						"coddistribuidor"=>"'$coddistribuidor'",
 						"codvendedor"=>"'$codvendedor'",
 						"observacion"=>"'$observacion'",
-						"tipo"=>"'envasado'"
+						"tipo"=>"'envasado'",
+						"codigocontrol"=>"'$codigocontrol'",
+						"codventageneral"=>"'$ultimo'",
 					);
 					$venta->insertar($valores);
 					//echo "Guardando Venta";
@@ -110,7 +133,9 @@ foreach($m as $ma){
 						"coddistribuidor"=>"'$coddistribuidor'",
 						"codvendedor"=>"'$codvendedor'",
 						"observacion"=>"'$observacion'",
-						"tipo"=>"'directo'"
+						"tipo"=>"'directo'",
+						"codigocontrol"=>"'$codigocontrol'",
+						"codventageneral"=>"'$ultimo'",
 					);
 					$venta->insertar($valores);
 					/*echo "<pre>";
