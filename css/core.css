@@ -580,3 +580,6 @@ small{
 	text-align:right;	
 }
 /*Fin de Texto*/
+.borde td{
+	border: 1px solid #D7D7D7
+}
