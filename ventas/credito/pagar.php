@@ -35,10 +35,11 @@ include_once '../../cabecerahtml.php';
 ?>
 <script language="javascript">
 $(document).on("ready",function(){
+	var totaladeudadoalafechaAnterior=<?php echo $mp['total']-$mp['totalcancelado']?>;
 	$("#montopago").change(function(e) {
         var totaladeudado=$("#totaladeudado").val();
 		var montopago=$(this).val();
-		var totaladeudadoalafecha=totaladeudado-montopago;
+		var totaladeudadoalafecha=totaladeudadoalafechaAnterior-montopago;
 		$("#totaladeudadoalafecha").val(totaladeudadoalafecha);
     });
 });
