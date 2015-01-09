@@ -23,14 +23,21 @@ echo "</pre>";
 */
 
 foreach($m as $ma){
+	$preciounitario=$ma['preciounitario'];
+	$preciounitario=$preciounitario*0.87;
 	
+	$total=$ma['cantidad']*$preciounitario;
+	$preciounitario=number_format($preciounitario,2,".",",");
+	$total=number_format($total,2,".",",");
 	if($ma['codproductos']!=0 && $ma['codproductos']!=""){
+		
+		//echo $preciounitario;
 $valores=array(	"fechacompra"=>"'".$fechacompra."'",
 				"codproductos"=>"'".$ma['codproductos']."'",
 				"cantidad"=>"'".$ma['cantidad']."'",
 				"cantidadesperada"=>"'".$ma['cantidad']."'",
-				"preciounitario"=>"'".$ma['preciounitario']."'",
-				"total"=>"'".$ma['total']."'",
+				"preciounitario"=>"'".$preciounitario."'",
+				"total"=>"'".$total."'",
 				"codproveedor"=>"'".$codproveedor."'",
 				"fechavencimiento"=>"'".$ma['fechavencimiento']."'",
 				"observacion"=>"'".$observacion."'",
@@ -38,8 +45,8 @@ $valores=array(	"fechacompra"=>"'".$fechacompra."'",
 				);
 				
 		/*echo "<pre>";
-print_r($ma);
-echo "</pre>";			*/	
+print_r($valores);
+echo "</pre>";				 */
 	$compra->insertar($valores);
 	}
 }
