@@ -38,7 +38,8 @@ $compra=new compra;
 $productos=new productos;
 $distribuidor=new distribuidor;
 $cliente=new cliente;
-$where="codproductos LIKE '$codproductos'";
+//$where="codproductos LIKE '$codproductos'";
+$where="codproductos IN(SELECT  codproductos FROM compra WHERE tipo='Procesado' and codproductos LIKE '$codproductos' GROUP BY codproductos)";
 /*if(!empty($fechacontrato)){
 	$where="`fechacontrato`<='$fechacontrato'";
 }

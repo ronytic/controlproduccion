@@ -6,7 +6,7 @@ include_once("../../funciones/funciones.php");
 
 include_once("../../class/productos.php");
 $productos=new productos;
-$prod=todolista($productos->mostrarTodos("","nombre"),"codproductos","nombre","");
+$prod=todolista($productos->mostrarTodos("codproductos IN(SELECT  codproductos FROM compra WHERE tipo='Procesado' GROUP BY codproductos)","nombre"),"codproductos","nombre","");
 
 include_once "../../cabecerahtml.php";
 ?>
