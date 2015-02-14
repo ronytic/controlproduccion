@@ -109,9 +109,9 @@ foreach($productos->mostrarTodos($where,"nombre") as $inv){
 			$preciomaximo=$costoproduccion+$costomaximodeproduccion;
 			$pdf->CuadroCuerpo(25,$costoproduccion,1,"R",1);
 			$pdf->CuadroCuerpo(25,$preciominimo,1,"R",1);
-			$pdf->CuadroCuerpo(25,$preciominimo*0.16,1,"R",1);
+			$pdf->CuadroCuerpo(25,number_format($preciominimo*1.16,2),1,"R",1);
 			$pdf->CuadroCuerpo(25,$preciomaximo,1,"R",1);
-			$pdf->CuadroCuerpo(25,$preciomaximo*0.16,1,"R",1);
+			$pdf->CuadroCuerpo(25,number_format($preciomaximo*1.16,2),1,"R",1);
 			$pdf->CuadroCuerpo(15,$cantidadcompratotal,0,"R",1);
 			
 			$pdf->CuadroCuerpo(15,$inv['unidad'],0,"",1);
