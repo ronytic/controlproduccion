@@ -38,7 +38,7 @@ include_once "../../cabecerahtml.php";
                     <tr>
                         <td><?php campos("Distribuidor","coddistribuidor","select",$dis,"");?></td>
                         <td><?php campos("Vendedor","codvendedor","select",$ven,"");?></td>
-                        
+                        <td><?php campos("Código de Control","codigocontrol","text","","");?></td>
                         <td><?php campos("Buscar","enviar","submit","",0,array("size"=>15));?></td>
                     </tr>
                 </table>

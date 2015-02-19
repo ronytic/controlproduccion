@@ -23,8 +23,10 @@ if (!empty($_POST)) {
 	$codvendedor=$codvendedor!=""?$codvendedor:'%';
 	$fechaventa=$fechaventa!=""?$fechaventa:'%';
 	$fechaultimopago=$fechaultimopago!=""?$fechaultimopago:'%';
+	$codigocontrol=$codigocontrol!=""?$codigocontrol:'%';
+	
 	$cuota=($cancelado=="porpagar")?'total<>totalcancelado':'total=totalcancelado';
-	foreach($ventageneral->mostrarTodo("$cuota and codcliente LIKE '$codcliente' and codvendedor LIKE '$codvendedor' and coddistribuidor LIKE '$coddistribuidor' and fechaultimopago LIKE '$fechaultimopago' and fechaventa LIKE '$fechaventa'")as $mp){$i++;
+	foreach($ventageneral->mostrarTodo("$cuota and codcliente LIKE '$codcliente' and codvendedor LIKE '$codvendedor' and coddistribuidor LIKE '$coddistribuidor' and fechaultimopago LIKE '$fechaultimopago' and fechaventa LIKE '$fechaventa' and codigocontrol LIKE '$codigocontrol'")as $mp){$i++;
 	$pro=array_shift($productos->mostrar($mp['codproductos']));
 	$cli=array_shift($cliente->mostrar($mp['codcliente']));
 	$ven=array_shift($vendedor->mostrar($mp['codvendedor']));
