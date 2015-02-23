@@ -8,7 +8,7 @@ include_once "../../cabecerahtml.php";
 <?php include_once "../../cabecera.php";?>
 <div class="grid_12">
 	<div class="contenido">
-    	<div class="grid_8 prefix_2 alpha">
+    	<div class="grid_8 prefix_1 alpha">
         	<fieldset>
         	<div class="titulo"><?php echo $titulo?> - Criterio de Busqueda</div>
             <form id="busqueda" action="busqueda.php" method="post" >
@@ -17,6 +17,7 @@ include_once "../../cabecerahtml.php";
                         <td><?php campos("Nombre","nombre","text","",1,array("size"=>15));?></td>
                         <td><?php campos("Dirección","direccion","text","",0,array("size"=>15));?></td>
                         <td><?php campos("Teléfono","telefono","text","",0,array("size"=>15));?></td>
+                        <td><?php campos("R.U.C.","ruc","text","",0,array("size"=>15));?></td>
                         <td><?php campos("Observación","observacion","text","",0,array("size"=>15));?></td>
                         <td><?php campos("Buscar","enviar","submit","",0,array("size"=>15));?></td>
                     </tr>

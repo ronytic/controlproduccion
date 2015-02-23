@@ -17,6 +17,7 @@ mostrarI(array("Nombre"=>$cli['nombre'],
 				"Teléfono"=>$cli['telefono'],
 				"Departamento"=>$cli['departamento'],
 				"Gasto de Distribución"=>$cli['gasto'],
+				"R.U.C."=>$cli['ruc'],
 				"Observación"=>$cli['observacion'].""
 			));
 

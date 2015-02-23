@@ -10,6 +10,7 @@ $valores=array(	"nombre"=>"'$nombre'",
 				"telefono"=>"'$telefono'",
 				"departamento"=>"'$departamento'",
 				"gasto"=>"'$gasto'",
+				"ruc"=>"'$ruc'",
 				"observacion"=>"'$observacion'",
 				);
 				$cliente->actualizar($valores,$id);
