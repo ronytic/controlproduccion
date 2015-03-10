@@ -22,7 +22,7 @@ class PDF extends PPDF{
 		//$this->TituloCabecera(20,"CantStock");
 		$this->TituloCabecera(20,"FechaVen");
 		$this->TituloCabecera(50,"Cliente");
-		$this->TituloCabecera(50,"Distribuidor");
+		$this->TituloCabecera(50,"Vendedor");
 		$this->TituloCabecera(60,"Observación");
 	}	
 }
@@ -30,23 +30,25 @@ class PDF extends PPDF{
 
 $codproductos=$codproductos!=""?$codproductos:"%";
 $codcliente=$codcliente!=""?$codcliente:"%";
+$codigocontrol=$codigocontrol!=""?$codigocontrol:"%";
 
 
 $existente=$existente=="1"?'and cantidadstock>0':'';
 if($fechainicio!="" && $fechafin!=""){
 	$fechainicio=$fechainicio!=""?$fechainicio:"%";
 	$fechafin=$fechafin!=""?$fechafin:"%";
+	
 	$fechas=" and  (fechacompra BETWEEN '$fechainicio' and '$fechafin')";
 }
 include_once("../../class/productos.php");
 include_once("../../class/venta.php");
-include_once("../../class/distribuidor.php");
+include_once("../../class/vendedor.php");
 include_once("../../class/cliente.php");
 $venta=new venta;
 $productos=new productos;
-$distribuidor=new distribuidor;
+$vendedor=new vendedor;
 $cliente=new cliente;
-$where="codproductos LIKE '$codproductos' and codcliente LIKE '$codcliente' $fechas  $existente";
+$where="codproductos LIKE '$codproductos' and codcliente LIKE '$codcliente' and codigocontrol LIKE '$codigocontrol' $fechas  $existente";
 /*if(!empty($fechacontrato)){
 	$where="`fechacontrato`<='$fechacontrato'";
 }
@@ -73,7 +75,7 @@ foreach($venta->mostrarTodos($where,"fechaventa") as $inv){$i++;
 
 	$pro=array_shift($productos->mostrar($inv['codproductos']));
 	$clie=array_shift($cliente->mostrar($inv['codcliente']));
-	$dist=array_shift($distribuidor->mostrar($inv['coddistribuidor']));
+	$vend=array_shift($vendedor->mostrar($inv['codvendedor']));
 	
 	$pdf->CuadroCuerpo(10,$i,0,"R");
 	$pdf->CuadroCuerpo(60,$pro['nombre'],0,"");
@@ -84,7 +86,7 @@ foreach($venta->mostrarTodos($where,"fechaventa") as $inv){$i++;
 	//$pdf->CuadroCuerpo(20,($inv['cantidadstock']),1,"R",1);
 	$pdf->CuadroCuerpo(20,fecha2Str($inv['fechaventa']),1,"",1);
 	$pdf->CuadroCuerpo(50,($clie['nombre']),1,"",1);
-	$pdf->CuadroCuerpo(50,($dist['nombre']),1,"",1);
+	$pdf->CuadroCuerpo(50,($vend['nombre']),1,"",1);
 	$pdf->CuadroCuerpo(60,($inv['observacion']),1,"L",1);
 	
 	$pdf->ln();

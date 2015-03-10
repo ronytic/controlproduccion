@@ -12,7 +12,7 @@ if (!empty($_POST)) {
 	
 	
 	$codproductos=$codproductos!=""?$codproductos:'%';
-	$codproveedor=$codproveedor!=""?$codproveedor:'%';
+	//$codproveedor=$codproveedor!=""?$codproveedor:'%';
 	//$fechavencimientoinicio=$fechavencimientoinicio!=""?$fechavencimientoinicio:'%';
 	//$fechavencimientofin=$fechavencimientofin!=""?$fechavencimientofin:'%';
 	
@@ -20,7 +20,7 @@ if (!empty($_POST)) {
 		$valormerma=" and cantidad<cantidadesperada";	
 	}
 	$fecha=($fechavencimientoinicio!="" && $fechavencimientofin!="")?" and fechavencimiento BETWEEN '$fechavencimientoinicio' and '$fechavencimientofin'":'';
-	foreach($compra->mostrarTodo("codproveedor LIKE '$codproveedor' and codproductos LIKE '$codproductos' $fecha $valormerma and tipo='procesado' and cantidadstock>0")as $mp){$i++;
+	foreach($compra->mostrarTodo("codproductos LIKE '$codproductos' $fecha $valormerma and tipo='procesado' and cantidadstock>0")as $mp){$i++;
 		$pro=array_shift($productos->mostrar($mp['codproductos']));
 		$datos[$i]['codcompra']=$mp['codcompra'];
 		$datos[$i]['producto']=$pro['nombre'];

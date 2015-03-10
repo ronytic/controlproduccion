@@ -6,6 +6,10 @@ include_once("../../class/productos.php");
 $productos=new productos;
 $prod=todolista($productos->mostrarTodo("","nombre"),"codproductos","nombre","");
 
+include_once("../../class/cliente.php");
+$cliente=new cliente;
+$cli=todolista($cliente->mostrarTodo("","nombre"),"codcliente","nombre","");
+
 $dest=array("Procesado"=>"Procesado","Directo"=>"Directo");
 $estado=array("Pendiente"=>"Pendiente","Entregado"=>"Entregado");
 include_once("../../funciones/funciones.php");
@@ -23,6 +27,7 @@ include_once "../../cabecerahtml.php";
                         <td><?php campos("Fecha de Pedido","fechapedido","date","",0,array("size"=>15));?></td>
                         <td><?php campos("Fecha de Entrega","fechaentrega","date","",0,array("size"=>15));?></td>
                         <td><?php campos("Productos","codproductos","select",$prod);?></td>
+                        <td width="200"><?php campos("Cliente","codcliente","select",$cli);?></td>
                     </tr>
                     <tr>    
                     	<td><?php campos("Estado","estado","select",$estado,0,"",$ped['estado']);?></td>

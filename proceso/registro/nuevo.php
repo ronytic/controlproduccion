@@ -48,11 +48,13 @@ $(document).on("ready",function(){
 	linea++;
 	aumentar();
 	function aumentar(){
-		$.post("aumentar.php",{'l':linea},function(data){
+
+		$.post("aumentar.php",{l:linea},function(data){
 			$("#marca").before(data);
+			$('input[type=date]').click(function(e){e.preventDefault();}).datepicker();
 			$("select").css({'width':'100%'}).not(".nolista").select2({'placeholder':'Búsqueda no encontrada','loadMorePadding':0});
 			linea++;
-		});	
+		});
 	}
 });
 
@@ -62,32 +64,28 @@ $(document).on("ready",function(){
 <div class="grid_12">
 	<div class="contenido">
     <form action="guardar.php" method="post" enctype="multipart/form-data">
-    	<div class="prefix_3 grid_4 alpha">
+    	<div class="prefix_0 grid_11 alpha">
 			<fieldset>
 				<div class="titulo"><?php echo $titulo?> <hr>Producto a Procesar</div>
                 
 				<table class="tablareg">
                 	<tr>
 						<td><?php campos("Fecha de Producción","fechaproduccion","date",date("Y-m-d"),0,array("required"=>"required"));?></td>
-					</tr>
-					<tr>
+					
 						<td><?php campos("Producto","codproductos","select",$pro,1,array("required"=>"required"));?></td>
-					</tr>
-                    <tr>
+					
 						<td><?php campos("Cantidad Esperada","cantidadesperada","number","0",0,array("class"=>"der","min"=>0));?></td>
-					</tr>
-					<tr>
-						<td><?php campos("Cantidad Resultante","cantidad","number","0",0,array("class"=>"der","min"=>0));?><br><div class="rojoC pequeno">La cantidad Resultante y/o Esperadad introducida se contará para el inventario, Reviselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD</div></td>
+					
+						<td><?php campos("Cantidad Resultante","cantidad","number","0",0,array("class"=>"der","min"=>0));?></td>
 					</tr>
                     
                     <tr>
 						<td><?php campos("Fecha de Vencimiento","fechavencimiento","date",date("Y-m-d",strtotime(date("Y-m-d")." +30 day")),0,array("required"=>"required"));?></td>
-					</tr>
-                    <tr>
-						<td><?php campos("Observación","observacion","textarea");?></td>
+					
+						<td colspan="2"><?php campos("Observación","observacion","textarea");?></td>
 					</tr>
 				</table>
-                
+                <div class="rojoC pequeno">La cantidad Resultante y/o Esperadad introducida se contará para el inventario, Reviselo antes de Registrarlo, Posteriormente no se podra modificar la CANTIDAD</div>
 			</fieldset>
 		</div>
     	<div class="clear"></div>

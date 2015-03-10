@@ -9,10 +9,13 @@ if (!empty($_POST)) {
 	include_once '../../class/cliente.php';
 
 	$estado=$estado!=""?$estado:'%';
+	$codcliente=$codcliente!=""?$codcliente:'%';
+	
+	
 	$pedidos=new pedidos;
 	$productos=new productos;
 	$cliente=new cliente;
-	$ped=$pedidos->mostrarTodo("fechapedido LIKE '%$fechapedido%' and fechaentrega LIKE '%$fechaentrega%' and codproductos LIKE '%$codproductos%' and estado LIKE '$estado'");
+	$ped=$pedidos->mostrarTodo("fechapedido LIKE '%$fechapedido%' and fechaentrega LIKE '%$fechaentrega%' and codproductos LIKE '%$codproductos%' and estado LIKE '$estado' and codcliente LIKE '$codcliente'");
 
 	$datos=array();
 	foreach($ped as $p){$i++;

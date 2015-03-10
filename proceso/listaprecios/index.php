@@ -9,6 +9,7 @@ $productos=new productos;
 $prod=todolista($productos->mostrarTodos("","nombre"),"codproductos","nombre","");
 
 $tipoproceso=array("Procesado"=>"Procesado","Comprado"=>"Comprado");
+$tipo=array("Detallado"=>"Detallado","Ultimo"=>"Último");
 include_once "../../cabecerahtml.php";
 ?>
 <?php include_once "../../cabecera.php";?>
@@ -20,8 +21,9 @@ include_once "../../cabecerahtml.php";
             <form id="busqueda" action="busqueda.php" method="post">
                 <table class="tablabus">
                     <tr>
-                        <td colspan="4"><?php campos("Producto","codproductos","select",$prod,0)?></td>
-                        <td colspan="4"><?php campos("Proceso","proceso","select",$tipoproceso,0)?></td>
+                        <td colspan="1"><?php campos("Producto","codproductos","select",$prod,0)?></td>
+                        <td colspan="1"><?php campos("Proceso","proceso","select",$tipoproceso,0)?></td>
+						<td colspan="1"><?php campos("Tipo de Reporte","tipo","select",$tipo,0,"","Detallado")?></td>
                         <?php /*<td><?php campos("Fecha de Inicio","fechainicio","date","")?></td>
                         <td><?php campos("Fecha Fin","fechafin","date","")?></td>
                         <td><?php campos("Producto Existente","existente","select",array("0"=>"No","1"=>"Si"))?></td>*/?>

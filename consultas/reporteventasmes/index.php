@@ -20,6 +20,7 @@ $anio=array();
 for($i=2010;$i<=date('Y');$i++){
 	$anio[$i]=$i;
 }
+$tipo=array("Detallado"=>"Detallado","Resumido"=>"Resumido");
 
 include_once "../../cabecerahtml.php";
 ?>
@@ -34,8 +35,7 @@ include_once "../../cabecerahtml.php";
                     <tr>
                         <td colspan="4"><?php campos("Mes","mes","select",$mes,0)?></td>
                         <td colspan="4"><?php campos("Año","anio","select",$anio,0)?></td>
-                        
-                        <?php /*<td><?php campos("Fecha de Inicio","fechainicio","date","")?></td>
+                        <td colspan="1"><?php campos("Tipo de Reporte","tipo","select",$tipo,0,"","Detallado")?></td>	                        <?php /*<td><?php campos("Fecha de Inicio","fechainicio","date","")?></td>
                         <td><?php campos("Fecha Fin","fechafin","date","")?></td>
                         <td><?php campos("Producto Existente","existente","select",array("0"=>"No","1"=>"Si"))?></td>*/?>
                     </tr>

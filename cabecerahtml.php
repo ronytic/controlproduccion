@@ -1,4 +1,6 @@
 <?php
+//session_start();
+//print_r($_SESSION);
 include_once 'class/usuarios.php';
 $codusuario=$_SESSION['idusuario'];
 $nivel=$_SESSION['nivel'];

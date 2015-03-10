@@ -22,8 +22,8 @@ include_once "../../cabecerahtml.php";
             <form id="busqueda" action="busqueda.php" method="post" >
                 <table class="tablabus">
                     <tr>
-                        <td><?php campos("Producto","codproductos","select",$prod);?></td>
-                        <td><?php campos("Proveedor","codproveedor","select",$prov,"");?></td>
+                        <td colspan="2"><?php campos("Producto","codproductos","select",$prod);?></td>
+                        
                     </tr>
                     <tr>    
                         <td><?php campos("Fecha de Vencimiento Inicio","fechavencimientoinicio","date","");?></td>

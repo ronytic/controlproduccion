@@ -123,14 +123,16 @@ foreach($productos->mostrarTodos($where,"nombre") as $inv){$i++;
 		$pdf->CuadroCuerpo(20,$preciounitariop,1,"R",1);
 		$pdf->CuadroCuerpo(20,$totalp,1,"R",1);
 		$pdf->ln();
+	}else{
+		$pdf->ln();	
 	}
 	$pdf->ln();
 }
-$pdf->Linea();
+/*$pdf->Linea();
 $pdf->CuadroCuerpoResaltar(90,"Totales",1,"R",0);
 $pdf->CuadroCuerpoResaltar(40,$cantidadc,1,"R",1);
 $pdf->CuadroCuerpoResaltar(40,$cantidadv,1,"R",1);
-$pdf->CuadroCuerpoResaltar(40,$cantidads,1,"R",1);
+$pdf->CuadroCuerpoResaltar(40,$cantidads,1,"R",1);*/
 //$pdf->CuadroCuerpoResaltar(20,$cantidadstock,1,"R",1);
 $pdf->CuadroCuerpoResaltar(55,"",0,"");
 //print_r($totales);

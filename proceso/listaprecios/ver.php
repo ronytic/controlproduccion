@@ -13,7 +13,7 @@ class PDF extends PPDF{
 		$this->TituloCabecera(10,"N");
 		$this->TituloCabecera(40,"Nombre del Producto");
 		$this->TituloCabecera(25,"Costo de Prod.");
-		
+			
 		$this->TituloCabecera(25,"Costo Mínimo");
 		$this->TituloCabecera(25,"C. Mínimo+Imp");
 		$this->TituloCabecera(25,"Costo Máximo");
@@ -76,8 +76,12 @@ foreach($productos->mostrarTodos($where,"nombre") as $inv){
 	}
 	$where2="codproductos LIKE '{$inv['codproductos']}' $TipoProceso";
 	//$comp=array_shift($compra->sumarProducto());
-	
-	$compralista=$compra->mostrarTodo($where2,1);
+	//echo $tipo;
+	if($tipo=="Detallado"){
+		$compralista=$compra->mostrarTodo($where2,"");
+	}else{
+		$compralista=$compra->mostrarTodo($where2,"preciounitario",1,1);
+	}
 	
 	
 	$cantidadcompratotal=count($compralista);

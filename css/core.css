@@ -436,6 +436,7 @@ table.tablareg{
 table.tablareg td{
 	border-bottom:#e5e5e5 1px solid;
 	padding:5px;
+	vertical-align:top !important;
 }
 table.tablareg td.der{
 	text-align:right;

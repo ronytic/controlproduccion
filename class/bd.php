@@ -71,7 +71,7 @@ class bd{
 		$count = $count ? "LIMIT $start, $count" : "";
 		$camposs =implode (', ', $this->campos);
 		$query ="SELECT $camposs FROM {$this->tabla} $where $group $order $count ";
-		//echo $query."<br>";
+		//echo $query."<br>";	
 		return $this->sql ($query);
 	}
 	function last_id(){
@@ -86,7 +86,7 @@ class bd{
 			$val[]=$v;
 		}
 		if($swadicional==1){
-			$codusuario=$_SESSION['codusuario'];
+			$codusuario=$_SESSION['idusuario'];
 			if(empty($codusuario)){$codusuario=1;};
 			$fecha=date("Y-m-d");
 			$hora=date("H:i:s");
@@ -133,15 +133,18 @@ class bd{
 		return $this->getRecords("cod".$this->tabla."=$Cod");
 	}
 	
-	function mostrarTodo($where='',$orden=false,$cantidad=0){
+	function mostrarTodo($where='',$orden=false,$cantidad=0,$descendente=0){
 		$this->campos=array('*');
+		
 		$orden=$orden?$orden:"cod".$this->tabla;
 		$condicion=$where?$where.' and ':'';
 		if($cantidad==0)
 
 			return $this->getRecords($condicion."activo=1",$orden,0,0,0,0);
 		else
-			return $this->getRecords($condicion."activo=1",$orden,0,$cantidad,0,0);
+			return $this->getRecords($condicion."activo=1",$orden,0,$cantidad,0,$descendente);
+			
+		//$where_str=false, $order_str=false,$group_str=false, $count=false, $start=0, $order_strDesc=false
 	}
 	function mostrarTodoDesactivados($where='',$orden=false,$cantidad=0){
 		$this->campos=array('*');
@@ -153,7 +156,11 @@ class bd{
 			return $this->getRecords($condicion."activo=0",$orden,0,$cantidad,0,0);
 	}
 	function mostrarTodos($where='',$orden=false,$cantidad=0){
-		$this->campos=array('*');
+		if(empty($this->campos)){
+			$this->campos=array('*');
+		}
+		
+		//echo $this->campos;
 		$orden=$orden?$orden:"cod".$this->tabla;
 		$condicion=$where?$where.'':'';
 		if($cantidad==0)

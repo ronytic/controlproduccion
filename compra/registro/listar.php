@@ -24,11 +24,12 @@ include_once "../../cabecerahtml.php";
                     <tr>
                         <td><?php campos("Producto","codproductos","select",$prod);?></td>
                         <td><?php campos("Proveedor","codproveedor","select",$prov,"");?></td>
+                        <td><?php campos("Observación","observacion","text","","");?></td>
                     </tr>
                     <tr>    
                         <td><?php campos("Fecha de Vencimiento Inicio","fechavencimientoinicio","date","");?></td>
                         <td><?php campos("Fecha de Vencimiento Fin","fechavencimientofin","date","");?></td>
-                        <td><?php campos("Productos con Merma","merma","select",array("Si"=>"Si","No"=>"No"),0,"","No");?></td>
+                        <td><?php campos("Productos Procesados con Merma","merma","select",array("Si"=>"Si","No"=>"No"),0,"","No");?></td>
                         <td><?php campos("Buscar","enviar","submit","",0,array("size"=>15));?></td>
                     </tr>
                 </table>
