@@ -89,9 +89,9 @@ foreach($venta->mostrarTodos($where,"fechaventa") as $inv){$i++;
 	$clie=array_shift($cliente->mostrar($inv['codcliente']));
 	$dist=array_shift($distribuidor->mostrar($inv['coddistribuidor']));
 	
-	$pdf->CuadroCuerpo(10,$i,0,"R");
-	$pdf->CuadroCuerpo(60,$pro['nombre'],0,"");
-	$pdf->CuadroCuerpo(15,$pro['unidad'],0,"");
+	$pdf->CuadroCuerpo(10,$i,0,"R",1);
+	$pdf->CuadroCuerpo(60,$pro['nombre'],0,"",1);
+	$pdf->CuadroCuerpo(15,$pro['unidad'],0,"",1);
 	$pdf->CuadroCuerpo(20,($inv['cantidad']),1,"R",1);
 	if($tipo=="Detallado"){
 	$pdf->CuadroCuerpo(20,($inv['preciounitario']),1,"R",1);
@@ -107,7 +107,7 @@ foreach($venta->mostrarTodos($where,"fechaventa") as $inv){$i++;
 	$pdf->ln();
 }
 $pdf->Linea();
-$pdf->CuadroCuerpoResaltar(85,"Totales",1,"R",0);
+$pdf->CuadroCuerpoResaltar(85,"Totales",1,"R",1);
 $pdf->CuadroCuerpoResaltar(20,$cantidadt,1,"R",1);
 if($tipo=="Detallado"){
 $pdf->CuadroCuerpoResaltar(20,$preciot,1,"R",1);

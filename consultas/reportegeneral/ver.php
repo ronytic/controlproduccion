@@ -75,13 +75,13 @@ foreach($productos->mostrarTodos($where,"nombre") as $inv){$i++;
 	$clie=array_shift($cliente->mostrar($inv['codcliente']));
 	$dist=array_shift($distribuidor->mostrar($inv['coddistribuidor']));
 	
-	$pdf->CuadroCuerpo(10,$i,0,"R");
-	$pdf->CuadroCuerpo(80,$pro['nombre'],0,"");
+	$pdf->CuadroCuerpo(10,$i,0,"R",1);
+	$pdf->CuadroCuerpo(80,$pro['nombre'],0,"",1);
 	$pdf->CuadroCuerpo(40,$cantidadcompratotal,1,"R",1);
 	$pdf->CuadroCuerpo(40,$cantidadventatotal,1,"R",1);
 	$pdf->CuadroCuerpo(40,$cantidadstock,1,"R",1);
 	
-	$pdf->CuadroCuerpo(20,$pro['unidad'],0,"");
+	$pdf->CuadroCuerpo(20,$pro['unidad'],0,"",1);
 	$pdf->ln();
 }
 /*$pdf->Linea();
