@@ -28,7 +28,9 @@ include_once "../../cabecerahtml.php";
                         <td><?php campos("Código de Control","codigocontrol","text","")?></td>
                         <td><?php campos("Fecha de Inicio","fechainicio","date","")?></td>
                         <td><?php campos("Fecha Fin","fechafin","date","")?></td>
-                        <?php /*<td><?php campos("Producto Existente","existente","select",array("0"=>"No","1"=>"Si"))?></td>*/?>
+                        <td>
+                        	<?php campos("Tipo","tipo","select",array("Merma"=>"Merma","Venta"=>"Venta"),0,"","Venta");?>
+                        </td>
                     </tr>
                     <tr>
                         <td><?php campos("Ver Reporte","enviar","submit","",0,array("size"=>15));?></td>

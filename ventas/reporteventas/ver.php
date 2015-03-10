@@ -31,6 +31,7 @@ class PDF extends PPDF{
 $codproductos=$codproductos!=""?$codproductos:"%";
 $codcliente=$codcliente!=""?$codcliente:"%";
 $codigocontrol=$codigocontrol!=""?$codigocontrol:"%";
+$tipo=$tipo!=""?$tipo:"%";
 
 
 $existente=$existente=="1"?'and cantidadstock>0':'';
@@ -48,7 +49,7 @@ $venta=new venta;
 $productos=new productos;
 $vendedor=new vendedor;
 $cliente=new cliente;
-$where="codproductos LIKE '$codproductos' and codcliente LIKE '$codcliente' and codigocontrol LIKE '$codigocontrol' $fechas  $existente";
+$where="codproductos LIKE '$codproductos' and codcliente LIKE '$codcliente' and codigocontrol LIKE '$codigocontrol' and tipoventa LIKE '$tipo' $fechas  $existente";
 /*if(!empty($fechacontrato)){
 	$where="`fechacontrato`<='$fechacontrato'";
 }
@@ -77,9 +78,9 @@ foreach($venta->mostrarTodos($where,"fechaventa") as $inv){$i++;
 	$clie=array_shift($cliente->mostrar($inv['codcliente']));
 	$vend=array_shift($vendedor->mostrar($inv['codvendedor']));
 	
-	$pdf->CuadroCuerpo(10,$i,0,"R");
-	$pdf->CuadroCuerpo(60,$pro['nombre'],0,"");
-	$pdf->CuadroCuerpo(15,$pro['unidad'],0,"");
+	$pdf->CuadroCuerpo(10,$i,0,"R",1);
+	$pdf->CuadroCuerpo(60,$pro['nombre'],0,"",1);
+	$pdf->CuadroCuerpo(15,$pro['unidad'],0,"",1);
 	$pdf->CuadroCuerpo(20,($inv['cantidad']),1,"R",1);
 	$pdf->CuadroCuerpo(20,($inv['preciounitario']),1,"R",1);
 	$pdf->CuadroCuerpo(20,($inv['total']),1,"R",1);

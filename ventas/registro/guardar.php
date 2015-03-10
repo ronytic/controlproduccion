@@ -42,6 +42,7 @@ $valores=array(
 				"fechaventa"=>"'$fechaventa'",
 				"observacion"=>"'$observacion'",
 				"tipoventa"=>"'$modopago'",
+				"tipo"=>"'$tipo'",
 				);
 					$ventageneral->insertar($valores);
 					$ultimo=$ventageneral->last_id();
@@ -87,6 +88,7 @@ foreach($m as $ma){
 						"tipo"=>"'envasado'",
 						"codigocontrol"=>"'$codigocontrol'",
 						"codventageneral"=>"'$ultimo'",
+						"tipoventa"=>"'$tipo'",
 					);
 					$venta->insertar($valores);
 					//echo "Guardando Venta";
@@ -136,6 +138,7 @@ foreach($m as $ma){
 						"tipo"=>"'directo'",
 						"codigocontrol"=>"'$codigocontrol'",
 						"codventageneral"=>"'$ultimo'",
+						"tipoventa"=>"'$tipo'",
 					);
 					$venta->insertar($valores);
 					/*echo "<pre>";
